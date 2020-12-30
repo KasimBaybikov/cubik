@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
+/*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2020/12/24 18:07:12 by kasimbayb        ###   ########.fr       */
+/*   Created: 2020/10/30 23:36:38 by rvernon           #+#    #+#             */
+/*   Updated: 2020/10/31 13:33:20 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include "../mlx/mlx.h"
-
-
-#endif
+int	ft_isprint(int c)
+{
+	if (c >= 32 && c <= 126)
+	{
+		return (1);
+	}
+	return (0);
+}

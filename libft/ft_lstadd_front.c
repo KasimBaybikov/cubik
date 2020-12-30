@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
+/*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2020/12/24 18:07:12 by kasimbayb        ###   ########.fr       */
+/*   Created: 2020/11/04 23:23:40 by rvernon           #+#    #+#             */
+/*   Updated: 2020/11/21 20:22:03 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include "../mlx/mlx.h"
-
-
-#endif
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!lst)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	if (!new)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}

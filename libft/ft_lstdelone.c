@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
+/*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2020/12/24 18:07:12 by kasimbayb        ###   ########.fr       */
+/*   Created: 2020/11/09 13:05:13 by rvernon           #+#    #+#             */
+/*   Updated: 2020/11/09 17:46:11 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include "../mlx/mlx.h"
-
-
-#endif
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
+{
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
+}

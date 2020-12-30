@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
+/*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2020/12/24 18:07:12 by kasimbayb        ###   ########.fr       */
+/*   Created: 2020/11/02 13:39:59 by rvernon           #+#    #+#             */
+/*   Updated: 2020/11/02 13:44:34 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include "../mlx/mlx.h"
-
-
-#endif
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
+}

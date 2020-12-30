@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
+/*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2020/12/24 18:07:12 by kasimbayb        ###   ########.fr       */
+/*   Created: 2020/10/30 18:04:05 by rvernon           #+#    #+#             */
+/*   Updated: 2020/12/11 12:34:22 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include "../mlx/mlx.h"
+int		ft_strlen(const char *s)
+{
+	size_t i;
 
-
-#endif
+	if (!s)
+		return (0);
+	i = 0;
+	while (*s++ != '\0')
+		i++;
+	return (i);
+}

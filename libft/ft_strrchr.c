@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
+/*   By: rvernon <rvernon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2020/12/24 18:07:12 by kasimbayb        ###   ########.fr       */
+/*   Created: 2020/10/30 22:36:46 by rvernon           #+#    #+#             */
+/*   Updated: 2020/11/01 20:51:22 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include "../mlx/mlx.h"
+char	*ft_strrchr(const char *s, int c)
+{
+	char			*pc;
+	unsigned int	i;
 
-
-#endif
+	i = 0;
+	pc = (char *)s;
+	while (s[i] != '\0')
+		i++;
+	i++;
+	while (i--)
+	{
+		if (s[i] == (char)c)
+			return (pc + i);
+	}
+	return (NULL);
+}
