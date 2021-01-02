@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 22:20:37 by kasimbayb         #+#    #+#             */
-/*   Updated: 2020/12/30 23:48:20 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/02 13:28:41 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,18 @@ int             main(void)
     mlx = mlx_init();
     mlx_win = mlx_new_window(mlx, 800, 600, "Hello world!");
     img.img = mlx_new_image(mlx, 800, 600);
-    img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-                             &img.endian);
-    my_mlx_pixel_put(&img, 5, 100, 0x00FF0000);
-    my_mlx_pixel_put(&img, 7, 100, 0x00FF0000);
+    img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	int x = 10;
+	int y = -1;
+	while (x < 50)
+    {
+        while (++y < 600)
+        {
+    	    my_mlx_pixel_put(&img, x, y, 0x00FA8000);
+        }
+        x++;
+    }
     mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+    //my_mlx_pixel_put(&img, 7, 100, 0x00FF0000);
     mlx_loop(mlx);
 }
