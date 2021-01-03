@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/03 21:36:08 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/04 01:42:08 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,27 @@
 # include "../mlx/mlx.h"
 # include "../libft/includes/libftprintf.h"
 # include "../libft/get_next_line.h"
+# include <fcntl.h>
 
-typedef struct s_window
+typedef struct s_win
 {
     int width;
     int height;
-}               t_window;
+	void *mlx;
+	void *win;
+}               t_win;
 /*
     **Color
 */
-int		create_trgb(int t, int r, int g, int b);
+int		get_trgb(int t, int r, int g, int b);
 int		get_t(int trgb);
 int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
 void ft_error(int error);
+/*
+    **Inits
+*/
+void	init_window(t_win *window);
 
 #endif
