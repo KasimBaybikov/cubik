@@ -6,7 +6,7 @@
 #    By: rvernon <rvernon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/30 13:32:12 by rvernon           #+#    #+#              #
-#    Updated: 2020/12/30 23:31:05 by kasimbayb        ###   ########.fr        #
+#    Updated: 2021/01/03 16:41:24 by kasimbayb        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS = ft_memset.c\
 	   ft_tolower.c\
 	   ft_strnstr.c\
 	   ft_strncmp.c\
+	   ft_strcmp.c\
 	   ft_atoi.c\
 	   ft_strdup.c\
 	   ft_calloc.c\
@@ -70,9 +71,6 @@ SRCS = ft_memset.c\
 		printf/ft_utils.c\
 		printf/ft_printf.c\
 
-
-
-
 HEADER = libft.h  
 OBJS = ${SRCS:.c=.o}
 CC = gcc
@@ -81,14 +79,11 @@ CFLAGS = -Wall -Wextra -Werror
 all:    ${NAME}
 
 $(NAME): ${OBJS}
-	@echo "#####################################################################"
-	$(AR) rc ${NAME} ${OBJS}
+	@$(AR) rc ${NAME} ${OBJS}
 
 clean:
-	@echo "#####################################################################"
 	rm -f ${OBJS} ${BONUSOBJ}
 fclean: clean
-	@echo "#####################################################################"
 	rm -f ${NAME}
 re: fclean all
 
