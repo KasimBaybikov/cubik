@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 21:18:30 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/04 01:55:12 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/04 20:47:11 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,106 +25,17 @@ int pos_player(char **map, int i, int j)
 	return (0);
 }
 
-void draw_pix(t_win *window, char **map, int i, int j, int color)
-{
-	int x;
-	int y;
-
-	x = -1;
-	y = -1;
-	(void)map;
-	while (++x < 20)
-	{
-		while (++y < 20)
-		{		
-			mlx_pixel_put(window->mlx, window->win, i + x, j + y, color);
-		}
-		y = -1;
-	}
-}
-
-void	draw_map(char **map)
-{
-	int i;
-	int j;
-	t_win window;
-
-	i = -1;
-	j = -1;
-	init_window(&window);
-	window.mlx = mlx_init();
-	window.win = mlx_new_window(window.mlx, 800, 600, "Cub3D");
-	while (map[++i])
-	{
-		while (map[i][++j])
-		{
-			if (map[i][j] == '1')
-				draw_pix(&window, map, j*20, i * 20, get_trgb(0, 255, 150, 200));
-			if (pos_player(map, i, j))
-				draw_pix(&window, map, j*20, i * 20, get_trgb(0, 10, 20, 200));
-		}
-		j = -1;
-	}
-	mlx_loop(window.mlx);
-
-}
-
-void	get_map(int size, t_list *lstmap)
-{
-	char **map;
-	int i;
-
-	i = -1;
-	if (!(map = malloc(sizeof(char*) * (size + 1))))
-		ft_error(3);
-	while (lstmap)
-	{
-		map[++i] = lstmap->content;
-		lstmap = lstmap->next;
-	}
-	map[i] = NULL;
-	/*i = -1; //вывод массива карты
-	int j = -1;
-	while (map[++i])
-	{
-		while (map[i][++j])
-			ft_printf("%c", map[i][j]);
-		j = -1;
-		ft_printf("\n");
-	}*/
-	draw_map(map);
-}
-
-void	get_lstmap(int fd)
-{
-	char	*line = NULL;
-	t_list *lstmap = NULL;
-	int size = 0;
-
-	while (get_next_line(fd, &line))
-	{
-		ft_lstadd_back(&lstmap, ft_lstnew(line));
-		size++;
-	}
-	ft_lstadd_back(&lstmap, ft_lstnew(line));
-	/*while (lstmap) //вывод списка
-	{
-		ft_printf("%s\n", lstmap->content);
-		lstmap = lstmap->next;
-	}*/
-	get_map(size, lstmap);
-}
-
-void	get_params(char *map)
+void	get_params(char *name_map)
 {
 	int		fd;
-
-	char *line;
-		fd = 0;
-	if ((fd = open(map, O_RDONLY)) == -1)
+	t_all all;
+	
+	init_all(&all);
+	ft_printf("%d\n%d\n%d\n%d\n", all.plr->x, all.plr->y, all.plr->a, all.win->height);
+	fd = 0;
+	if ((fd = open(name_map, O_RDONLY)) == -1)
 		return (ft_error(2));
-	get_next_line(fd, &line);
-	get_lstmap(fd);
+	get_lstmap(fd, &all);
 }
 
 int		check_map_name(char *name)

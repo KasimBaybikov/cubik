@@ -6,7 +6,7 @@
 #    By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/21 21:49:26 by kasimbayb         #+#    #+#              #
-#    Updated: 2021/01/04 01:16:40 by kasimbayb        ###   ########.fr        #
+#    Updated: 2021/01/04 17:58:45 by kasimbayb        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ LIBFT = libft/
 SRCS = sources/cub3d.c\
 	   sources/color.c\
 	   sources/error.c\
-	   sources/initials.c
+	   sources/initials.c\
+	   sources/getmap.c\
+	   sources/draw.c\
 
 HEADER = includes/cub3d.h
 
