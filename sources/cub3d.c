@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 21:18:30 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/06 00:39:06 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/06 01:57:26 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int get_pos_player(t_all *all)
 			//printf("Y: %d X: %d\n", y, x);
 			if (all->map[y][x] == 'N')
 			{
-				printf("Y: %d X: %d\n", y, x);
-				all->plr->x = (float)x;
-				all->plr->y = (float)y;
+				//printf("Y: %d X: %d\n", y, x);
+				all->plr->x = (float)x * RECT;
+				all->plr->y = (float)y * RECT;
+				all->plr->a = 3*PI/2;
 			}
 			else if (all->map[y][x] == 'W')
 			{

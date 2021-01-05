@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/06 00:49:04 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/06 01:26:23 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 
 # define RECT 20
+# define PI 3.141592 
 
 typedef struct s_win
 {
@@ -32,7 +33,7 @@ typedef struct s_plr
 {
 	float x;
 	float y;
-	int a;
+	float a;
 }				t_plr;
 
 typedef struct	s_all

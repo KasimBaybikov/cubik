@@ -6,11 +6,26 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 13:05:21 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/06 00:55:20 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/06 02:04:50 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+#include <math.h>
+
+void	ft_cast_ray(t_all *all)
+{
+	t_plr	ray = *all->plr; // задаем координаты луча равные координатам игрока
+
+	while (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] != '1')
+	{
+		ray.x += cos(ray.a);
+		printf("cos(%f)\n", ray.a/PI*180);
+		ray.y += sin(ray.a);
+		mlx_pixel_put(all->win->mlx, all->win->win, ray.x, ray.y, get_trgb(0, 50, 200, 40));
+	}
+}
+
 void	draw_map_rect(t_all *all, int color)
 {
 	int y;
@@ -32,6 +47,7 @@ void	draw_map_rect(t_all *all, int color)
 int		key_press(int key, t_all *all)
 {
 	mlx_clear_window(all->win->mlx, all->win->win);
+	//printf("%d", key);
 	if (key == 13) //w
 		all->plr->y -= 0.1;
 	else if (key == 1) //s
@@ -40,10 +56,24 @@ int		key_press(int key, t_all *all)
 		all->plr->x -= 1;
 	else if (key == 2) //d
 		all->plr->x += 1;
+	else if (key == 123) // <-
+	{
+		if (all->plr->a < 0)
+			all->plr->a += 2*PI;
+		all->plr->a -= PI/10;
+	}
+	else if (key == 124) // <-
+	{
+		if (all->plr->a > 2*PI)
+			all->plr->a -= 2*PI;
+		all->plr->a += PI/10;
+	}
 	if (key == 53)
 		exit(0);
+	printf("%f\n", all->plr->a);
 	draw_map_rect(all, get_trgb(0, 255, 150, 200));
 	draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));
+	ft_cast_ray(all);
 	return (0);
 }
 
@@ -60,7 +90,7 @@ void	draw_player(t_all *all, int plrsize, int x, int y, int color)
 	{
 		while (++j < plrsize)
 		{		
-			mlx_pixel_put(all->win->mlx, all->win->win, (all->plr->x * RECT) + i, (all->plr->y*RECT) + j, color);
+			mlx_pixel_put(all->win->mlx, all->win->win, (all->plr->x) + i, (all->plr->y) + j, color);
 		}
 		j = -1;
 	}
