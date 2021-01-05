@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/04 20:48:54 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/06 00:49:04 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_win
 
 typedef struct s_plr
 {
-	int x;
-	int y;
+	float x;
+	float y;
 	int a;
 }				t_plr;
 
@@ -60,11 +60,14 @@ void	init_all(t_all *all);
 */
 void	get_lstmap(int fd, t_all *all);
 void	get_map(int size, t_list *lstmap, t_all *all);
-int		pos_player(char **map, int i, int j);
+//int		get_pos_player(char **map, int i, int j);
+int		get_pos_player(t_all *all);
 /*
     **Draw
 */
-void	draw_map(char **map);
-void	draw_pix(t_win *window, int rectsize, int i, int j, int color);
+void	draw_map(t_all *all);
+//void	draw_pix(t_all *all, int rectsize, int i, int j, int color);
+void	draw_pix(t_all *all, int rectsize, int x, int y, int color);
+void	draw_player(t_all *all, int plrsize, int x, int y, int color);
 
 #endif

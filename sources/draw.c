@@ -6,89 +6,94 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 13:05:21 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/04 14:22:20 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/06 00:55:20 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-int		key_press(int key, t_win *window, t_plr *plr)
+void	draw_map_rect(t_all *all, int color)
 {
-	//mlx_clear_window(window->mlx, window->win);
-	(void)window;
+	int y;
+	int x;
+
+	y = -1;
+	x = -1;
+	while (all->map[++y])
+	{
+		while (all->map[y][++x])
+		{
+			if (all->map[y][x] == '1')
+				draw_pix(all, RECT, x, y, color);
+		}
+		x = -1;
+	}
+}
+
+int		key_press(int key, t_all *all)
+{
+	mlx_clear_window(all->win->mlx, all->win->win);
 	if (key == 13) //w
-		plr->x += 1;
+		all->plr->y -= 0.1;
 	else if (key == 1) //s
-		plr->x += 10;
+		all->plr->y += 1;
 	else if (key == 0) //a
-		plr->x -= 1;
+		all->plr->x -= 1;
 	else if (key == 2) //d
-		plr->x -= 10;;
+		all->plr->x += 1;
 	if (key == 53)
 		exit(0);
-	//ft_printf("%d\n", plr->x);
+	draw_map_rect(all, get_trgb(0, 255, 150, 200));
+	draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));
 	return (0);
 }
 
-void	draw_player(t_win *window, int plrsize, int x, int y, int color)
+void	draw_player(t_all *all, int plrsize, int x, int y, int color)
 {
 	int i;
 	int j;
-	t_plr plr;
 
 	i = -1;
 	j = -1;
-	plr.x = x;
-	plr.y = y;
+	all->plr->x = x;
+	all->plr->y = y;
 	while (++i < plrsize)
 	{
 		while (++j < plrsize)
 		{		
-			mlx_pixel_put(window->mlx, window->win, (plr.x * RECT) + i, (plr.y*RECT) + j, color);
+			mlx_pixel_put(all->win->mlx, all->win->win, (all->plr->x * RECT) + i, (all->plr->y*RECT) + j, color);
 		}
 		j = -1;
 	}
-	mlx_key_hook(window->win, key_press, window);
+	printf("x: %f y: %f\n", all->plr->x, all->plr->y);
 }
 
-void	draw_pix(t_win *window, int rectsize, int i, int j, int color)
-{
-	int x;
-	int y;
-
-	x = -1;
-	y = -1;
-	while (++x < rectsize)
-	{
-		while (++y < rectsize)
-		{		
-			mlx_pixel_put(window->mlx, window->win, (i * RECT) + x, (j*RECT) + y, color);
-		}
-		y = -1;
-	}
-}
-
-void	draw_map(char **map)
+void	draw_pix(t_all *all, int rectsize, int x, int y, int color)
 {
 	int i;
 	int j;
-	t_win window;
 
 	i = -1;
 	j = -1;
-	init_window(&window);
-	window.mlx = mlx_init();
-	window.win = mlx_new_window(window.mlx, 800, 600, "Cub3D");
-	while (map[++i])
+	while (++i < rectsize)
 	{
-		while (map[i][++j])
-		{
-			if (map[i][j] == '1')
-				draw_pix(&window, RECT, j, i, get_trgb(0, 255, 150, 200));
-			if (pos_player(map, i, j))
-				draw_player(&window, 10, j, i, get_trgb(0, 10, 20, 200));
-		}
+		while (++j < rectsize)
+				mlx_pixel_put(all->win->mlx, all->win->win, (x*rectsize) + i, (y*rectsize) + j, color);
 		j = -1;
 	}
-	mlx_loop(window.mlx);
+}
+
+void	draw_map(t_all *all)
+{
+	int i;
+	int j;
+
+	i = -1;
+	j = -1;
+	all->win->mlx = mlx_init();
+	all->win->win = mlx_new_window(all->win->mlx, 800, 600, "Cub3D");
+	draw_map_rect(all, get_trgb(0, 255, 150, 200));
+	get_pos_player(all);
+	draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));
+	mlx_key_hook(all->win->win, key_press, all);
+	mlx_loop(all->win->mlx);
 }

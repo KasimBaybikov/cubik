@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 12:58:21 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/04 20:49:43 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/04 21:05:54 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	get_map(int size, t_list *lstmap, t_all *all)
 		ft_printf("\n");
 	}*/
 	//на руках есть карта, начинай римовать;
-	draw_map(all->map);
+	draw_map(all);
 }
 
 void	get_lstmap(int fd, t_all *all)

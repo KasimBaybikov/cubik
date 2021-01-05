@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 01:14:39 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/04 20:45:55 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/06 00:14:59 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_window(t_win *window)
 {
-	window->mlx = NULL;
+	window->mlx = mlx_init();
 	window->win = NULL;
 	window->width = 0;
 	window->height = 0;
@@ -22,8 +22,8 @@ void	init_window(t_win *window)
 
 void init_plr(t_plr *plr)
 {
-	plr->x = 0;
-	plr->y = 0;
+	plr->x = 0.0;
+	plr->y = 0.0;
 	plr->a = 0;
 }
 
