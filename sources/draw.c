@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 13:05:21 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/10 15:20:04 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/10 17:12:04 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	ft_cast_rays(t_all *all)
 		{
 			ray.x += cos(start);
 			ray.y += sin(start);
+			if (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] != '0')
+				break;
 			c += 0.1;
 			mlx_pixel_put(all->win->mlx, all->win->win, ray.x, ray.y, 0x990099);
 		}
