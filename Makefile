@@ -6,7 +6,7 @@
 #    By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/21 21:49:26 by kasimbayb         #+#    #+#              #
-#    Updated: 2021/01/07 17:55:31 by kasimbayb        ###   ########.fr        #
+#    Updated: 2021/01/10 17:22:15 by kasimbayb        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRCS = sources/cub3d.c\
 	   sources/initials.c\
 	   sources/getmap.c\
 	   sources/draw.c\
+	   sources/raycast.c\
+	   sources/key_press.c\
 #	   sources/mlx.c\
 
 HEADER = includes/cub3d.h
