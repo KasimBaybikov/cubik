@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 12:58:21 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/10 14:55:08 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/10 16:48:10 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,6 @@ void	get_map(int size, t_list *lstmap, t_all *all)
 		lstmap = lstmap->next;
 	}
 	all->map[i] = NULL;
-	/*i = -1; //вывод массива карты
-	int j = -1;
-	while (map[++i])
-	{
-		while (map[i][++j])
-			ft_printf("%c", map[i][j]);
-		j = -1;
-		ft_printf("\n");
-	}*/
-	//на руках есть карта, начинай римовать;
 	if (check_map(all))
 		draw_map(all);
 	else

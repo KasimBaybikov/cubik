@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 21:18:30 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/06 01:57:26 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/10 16:57:30 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,29 @@ int get_pos_player(t_all *all)
 	{
 		while (all->map[y][++x])
 		{
-			//printf("Y: %d X: %d\n", y, x);
 			if (all->map[y][x] == 'N')
 			{
-				//printf("Y: %d X: %d\n", y, x);
 				all->plr->x = (float)x * RECT;
 				all->plr->y = (float)y * RECT;
 				all->plr->a = 3*PI/2;
 			}
 			else if (all->map[y][x] == 'W')
 			{
-				//printf("Y: %d X: %d\n", y, x);
-				return (2);
+				all->plr->x = (float)x * RECT;
+				all->plr->y = (float)y * RECT;
+				all->plr->a = PI;
 			}
 			else if (all->map[y][x] == 'S')
 			{
-				//printf("Y: %d X: %d\n", y, x);
-				return (3);
+				all->plr->x = (float)x * RECT;
+				all->plr->y = (float)y * RECT;
+				all->plr->a = PI/2;
 			}
 			else if (all->map[y][x] == 'E')
 			{
-				//printf("Y: %d X: %d\n", y, x);
-				return (3);
+				all->plr->x = (float)x * RECT;
+				all->plr->y = (float)y * RECT;
+				all->plr->a = 0;
 			}
 		}
 		x = -1;
@@ -56,7 +57,6 @@ void	get_params(char *name_map)
 	t_all all;
 	
 	init_all(&all);
-	//printf("print: \n%f\n%f\n%d\n%p\n...\n", all.plr->x, all.plr->y, all.plr->a, all.win->win);
 	fd = 0;
 	if ((fd = open(name_map, O_RDONLY)) == -1)
 		return (ft_error(2));
@@ -84,8 +84,6 @@ int		main(int argc, char *argv[])
 	if (argc == 1)
 		ft_error(1);
 	else if (argc == 2 && check_map_name(argv[1]) == 1)
-	{
 		get_params(argv[1]);
-	}
 	return (0);
 }
