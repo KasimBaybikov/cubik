@@ -6,17 +6,19 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 21:18:30 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/10 16:57:30 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/10 17:31:34 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int get_pos_player(t_all *all)
+int			get_pos_player(t_all *all)
 {
-	int x = -1;
-	int y = -1;
+	int x;
+	int y;
 
+	x = -1;
+	y = -1;
 	while (all->map[++y])
 	{
 		while (all->map[y][++x])
@@ -51,7 +53,7 @@ int get_pos_player(t_all *all)
 	return (0);
 }
 
-void	get_params(char *name_map)
+void		get_params(char *name_map)
 {
 	int		fd;
 	t_all all;
@@ -63,7 +65,7 @@ void	get_params(char *name_map)
 	get_lstmap(fd, &all);
 }
 
-int		check_map_name(char *name)
+int			check_map_name(char *name)
 {
 	int i;
 
@@ -79,7 +81,7 @@ int		check_map_name(char *name)
 	return (0);
 }
 
-int		main(int argc, char *argv[])
+int			main(int argc, char *argv[])
 {
 	if (argc == 1)
 		ft_error(1);

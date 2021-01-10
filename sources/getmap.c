@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 12:58:21 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/10 16:48:10 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/10 17:33:51 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		check_map(t_all *all)
 	i = -1;
 	j = -1;
 	map = all->map;
-
 	return (1);
 }
 
@@ -46,20 +45,17 @@ void	get_map(int size, t_list *lstmap, t_all *all)
 
 void	get_lstmap(int fd, t_all *all)
 {
-	char	*line = NULL;
-	t_list *lstmap = NULL;
-	int size = 0;
+	char	*line;
+	t_list	*lstmap;
+	int		size;
 
+	line = 0;
+	size = 0;
 	while (get_next_line(fd, &line))
 	{
 		ft_lstadd_back(&lstmap, ft_lstnew(line));
 		size++;
 	}
 	ft_lstadd_back(&lstmap, ft_lstnew(line));
-	/*while (lstmap) //вывод списка
-	{
-		ft_printf("%s\n", lstmap->content);
-		lstmap = lstmap->next;
-	}*/
 	get_map(size, lstmap, all);
 }

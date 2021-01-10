@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 21:19:31 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/10 14:53:51 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/10 17:27:05 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ void	ft_error(int error)
 		ft_printf("\033[31mERROR: invalid map\033[0m");
 	else if (error == 4)
 		ft_printf("\033[31mERROR: AAAAAAAAAAAAa\033[0m");
-
 }
