@@ -6,11 +6,24 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 12:58:21 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/04 21:05:54 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/10 14:55:08 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+int		check_map(t_all *all)
+{
+	char	**map;
+	int		i;
+	int		j;
+
+	i = -1;
+	j = -1;
+	map = all->map;
+
+	return (1);
+}
 
 void	get_map(int size, t_list *lstmap, t_all *all)
 {
@@ -35,7 +48,10 @@ void	get_map(int size, t_list *lstmap, t_all *all)
 		ft_printf("\n");
 	}*/
 	//на руках есть карта, начинай римовать;
-	draw_map(all);
+	if (check_map(all))
+		draw_map(all);
+	else
+		ft_error(3);
 }
 
 void	get_lstmap(int fd, t_all *all)

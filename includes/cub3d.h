@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/06 01:26:23 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/07 20:40:23 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "../libft/get_next_line.h"
 # include <fcntl.h>
 
-# define RECT 20
+# define RECT 10
 # define PI 3.141592 
 
 typedef struct s_win
@@ -27,6 +27,9 @@ typedef struct s_win
     int height;
 	void *mlx;
 	void *win;
+	void *img;
+	char *adr;
+	  
 }               t_win;
 
 typedef struct s_plr
