@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:17:25 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/10 17:18:28 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/12 17:05:13 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_cast_ray(t_all *all)
 	{
 		ray.x += cos(ray.a);
 		ray.y += sin(ray.a);
-		printf("ray.x: %f ray.y: %f\n", ray.x, ray.y);
+//		printf("ray.x: %f ray.y: %f\n", ray.x, ray.y);
 		mlx_pixel_put(all->win->mlx, all->win->win, ray.x, ray.y, get_trgb(0, 50, 200, 40));
 	}
 }
@@ -36,16 +36,16 @@ void	ft_cast_rays(t_all *all)
 	{
 		ray.x = all->plr->x; // каждый раз возвращаемся в точку начала
 		ray.y = all->plr->y;
-		while (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] != '1' && c < 20)
+		while (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] != '1' && c < 40)
 		{
 			ray.x += cos(start);
 			ray.y += sin(start);
-			if (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] != '0')
+			if (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] == '1')
 				break;
 			c += 0.1;
 			mlx_pixel_put(all->win->mlx, all->win->win, ray.x, ray.y, 0x990099);
 		}
 		c = 0.0;
-		start += PI/2 / 500;
+		start += PI/2 / 100;
 	}
 }
