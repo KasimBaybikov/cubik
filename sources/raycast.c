@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:17:25 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/15 20:53:19 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/15 21:20:10 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_cast_rays(t_all *all)
 	{
 		ray.x = all->plr->x; // каждый раз возвращаемся в точку начала
 		ray.y = all->plr->y;
-		while (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] != '1' && c < 400)
+		while (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] != '1' && c < 40)
 		{
 			ray.x += cos(start);
 			ray.y += sin(start);
@@ -54,11 +54,11 @@ void	ft_cast_rays(t_all *all)
 		while (++i < 200 - c * 6)
 		{
 			//printf("c(%d) = %f\n", chet++, c); 
-			mlx_pixel_put(all->win->mlx, all->win->win, x, i + 350, get_trgb(0, 0, 206, 209));
+			mlx_pixel_put(all->win->mlx, all->win->win, x, c*2 + i + 350, get_trgb(0, 0, 206, 209));
 		}
-		x+=8;
+		x+=2;
 		i = -1;
 		c = 0.0;
-		start += PI/2 / 100;
+		start += PI/2 / 300;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:21:27 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/12 17:27:08 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/15 21:20:36 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int		key_press(int key, t_all *all)
 	{
 		if (all->plr->a < 0)
 			all->plr->a += 2*PI;
-		all->plr->a -= PI/10;
+		all->plr->a -= PI/12;
 	}
 	else if (key == 124) // <-
 	{
 		if (all->plr->a > 2*PI)
 			all->plr->a -= 2*PI;
-		all->plr->a += PI/10;
+		all->plr->a += PI/12;
 	}
 	if (key == 53)
 		exit(0);
