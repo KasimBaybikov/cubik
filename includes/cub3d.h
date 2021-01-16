@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 22:36:17 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/15 21:41:26 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/16 19:29:07 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ typedef struct s_win
 	void *mlx;
 	void *win;
 	void *img;
-	char *adr;
+	char *addr;
+	int bits_per_pixel;
+	int endian;
+	int line_length;
 	  
 }               t_win;
 
@@ -76,6 +79,7 @@ void	draw_pix(t_all *all, int rectsize, int x, int y, int color);
 void	draw_player(t_all *all, int plrsize, int x, int y, int color);
 void	draw_map_rect(t_all *all, int color);
 int		key_press(int key, t_all *all);
+void	my_mlx_pixel_put(t_all *all, int x, int y, int color);
 /*
 	**raycast
 */
