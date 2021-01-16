@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 13:05:21 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/15 19:35:47 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/16 17:16:00 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	draw_map(t_all *all)
 	get_pos_player(all);
 	draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));
 	ft_cast_rays(all);
-	mlx_key_hook(all->win->win, key_press, all);
+	//mlx_key_hook(all->win->win, key_press, all);
+	mlx_hook(all->win->win, 2, (1L << 0), key_press, all);
 	mlx_loop(all->win->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:21:27 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/15 21:20:36 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/16 17:14:43 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int		key_press(int key, t_all *all)
 	mlx_clear_window(all->win->mlx, all->win->win);
 	//printf("%d", key);
 	if (key == 13) //w
-		all->plr->y -= 5;
+	{
+		all->plr->x += cos(all->plr->a)*2;
+		all->plr->y += sin(all->plr->a)*2;
+	}
 	else if (key == 1) //s
 		all->plr->y += 5;
 	else if (key == 0) //a
@@ -28,18 +31,19 @@ int		key_press(int key, t_all *all)
 	{
 		if (all->plr->a < 0)
 			all->plr->a += 2*PI;
-		all->plr->a -= PI/12;
+		all->plr->a -= PI/20;
 	}
 	else if (key == 124) // <-
 	{
 		if (all->plr->a > 2*PI)
 			all->plr->a -= 2*PI;
-		all->plr->a += PI/12;
+		all->plr->a += PI/20;
 	}
 	if (key == 53)
 		exit(0);
-	draw_map_rect(all, get_trgb(0, 255, 150, 200));
-	draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));
+//	draw_map_rect(all, get_trgb(0, 255, 150, 200));
+//	draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));
+//	ft_cast_ray(all);
 	ft_cast_rays(all);
 	return (0);
 }

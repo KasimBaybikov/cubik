@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:17:25 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/15 21:20:10 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/16 17:14:14 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	ft_cast_ray(t_all *all)
 void	ft_cast_rays(t_all *all)
 {
 	t_plr	ray = *all->plr; // задаем координаты и направление луча равные координатам игрока
-	float start = ray.a - PI/4; // начало веера лучей
-	float end = ray.a + PI/4;	// край веера лучей
+	float start = ray.a - PI/6; // начало веера лучей
+	float end = ray.a + PI/6;	// край веера лучей
 	float c = 0.0;
 
 	float i = -1;
@@ -47,18 +47,20 @@ void	ft_cast_rays(t_all *all)
 			if (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] == '1')
 				break;
 			c += 0.1;
-			mlx_pixel_put(all->win->mlx, all->win->win, ray.x, ray.y, 0x990099);
+			//mlx_pixel_put(all->win->mlx, all->win->win, ray.x, ray.y, 0x990099);
 		}
 		printf("c(%d) = %f\n", chet++, c); 
 		
-		while (++i < 200 - c * 6)
+		while (++i < 200 - c * 5)
 		{
 			//printf("c(%d) = %f\n", chet++, c); 
-			mlx_pixel_put(all->win->mlx, all->win->win, x, c*2 + i + 350, get_trgb(0, 0, 206, 209));
+				mlx_pixel_put(all->win->mlx, all->win->win, x, c*1.5 + i + 350, get_trgb(0, 139, 0, 139));
+				mlx_pixel_put(all->win->mlx, all->win->win, x + 1, c*1.5 + i + 350, get_trgb(0, 139, 0, 139));
+				mlx_pixel_put(all->win->mlx, all->win->win, x + 2, c*1.5 + i + 350, get_trgb(0, 139, 0, 139));
 		}
-		x+=2;
+		x+=3;
 		i = -1;
 		c = 0.0;
-		start += PI/2 / 300;
+		start += PI/3 / 300;
 	}
 }
