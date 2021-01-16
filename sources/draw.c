@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 13:05:21 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/16 20:18:06 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/16 23:10:31 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	draw_pix(t_all *all, int rectsize, int x, int y, int color)
 	while (++i < rectsize)
 	{
 		while (++j < rectsize)
-				mlx_pixel_put(all->win->mlx, all->win->win, (x*rectsize) + i, (y*rectsize) + j, color);
+				my_mlx_pixel_put(all, (x*rectsize) + i, (y*rectsize) + j, color);
 		j = -1;
 	}
 }
@@ -73,7 +73,7 @@ void	draw_map(t_all *all)
 	i = -1;
 	j = -1;
 	all->win->mlx = mlx_init();
-	all->win->win = mlx_new_window(all->win->mlx, 900, 600, "Cub3D");
+	all->win->win = mlx_new_window(all->win->mlx, 800, 600, "Cub3D");
 	draw_map_rect(all, get_trgb(0, 255, 150, 200));
 	get_pos_player(all);
 	draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));

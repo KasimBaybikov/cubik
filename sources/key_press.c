@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:21:27 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/16 20:19:59 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/16 23:12:57 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int		key_press(int key, t_all *all)
 {
-	all->win->img = mlx_new_image(all->win->mlx, 900, 600);
+//	printf("key: %d\n", key);
+	all->win->img = mlx_new_image(all->win->mlx, 800, 600);
 	all->win->addr = mlx_get_data_addr(all->win->img, &all->win->bits_per_pixel, &all->win->line_length, &all->win->endian);
 	if (key == 13) //w
 	{
@@ -44,7 +45,7 @@ int		key_press(int key, t_all *all)
 			all->plr->a += 2*PI;
 		all->plr->a -= PI/50;
 	}
-	else if (key == 124) // <-
+	else if (key == 124) // ->
 	{
 		if (all->plr->a > 2*PI)
 			all->plr->a -= 2*PI;
