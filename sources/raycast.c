@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:17:25 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/16 23:44:57 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/18 16:49:24 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ void	ft_cast_rays(t_all *all)
 			//my_mlx_pixel_put(all, ray.x, ray.y, 0x990099);
 		}
 		printf("c(%d) = %f\n", chet++, c); 
-		
+
 		i = c * fabs(cos(start - all->plr->a));	
+		for (float k = 0; k < i; k++)
+			my_mlx_pixel_put(all, x, k, get_trgb(0, 8, 232, 222));
 		while (++i < 600 - c * fabs(cos(start - all->plr->a)))
 		{
 			//printf("c(%d) = %f\n", chet++, c); 
@@ -67,8 +69,12 @@ void	ft_cast_rays(t_all *all)
 				color2 = tmp_color;
 			}
 			my_mlx_pixel_put(all, x, i, color1);
+			//my_mlx_pixel_put(all, x + 1, i, color1);
 			tmp = c;
 		}
+		for (float k = i; k < 600; k++)
+			my_mlx_pixel_put(all, x, k, get_trgb(0, 61, 41, 31));
+
 		x+=1;
 		i = -1;
 		c = 0.0;
