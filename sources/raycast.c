@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:17:25 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/20 13:13:28 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/02/05 00:52:29 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	ft_cast_rays(t_all *all)
 
 		i = c * fabs(cos(start));	
 		paint_sky(all, x, i, get_trgb(0, 8, 232, 222));
-		while (i < 600 - c * fabs(cos(start)))
+		while (i++ < 600 - c * fabs(cos(start)))
 		{
 			//printf("c(%d) = %f\n", chet++, c); 
 			if (fabsf(c - tmp) > 10)
@@ -90,7 +90,6 @@ void	ft_cast_rays(t_all *all)
 			}
 			my_mlx_pixel_put(all, x, i, color1);
 			tmp = c;
-			i += 1;
 		}
 		paint_floor(all, x, i, get_trgb(0, 61, 41, 31));
 		x+=1;
