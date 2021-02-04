@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:17:25 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/18 16:49:24 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/01/20 13:13:28 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,28 @@ void	ft_cast_ray(t_all *all)
 		ray.x += cos(ray.a);
 		ray.y += sin(ray.a);
 //		printf("ray.x: %f ray.y: %f\n", ray.x, ray.y);
-		mlx_pixel_put(all->win->mlx, all->win->win, ray.x, ray.y, get_trgb(0, 50, 200, 40));
+	//	mlx_pixel_put(all->win->mlx, all->win->win, ray.x, ray.y, get_trgb(0, 50, 200, 40));
+	}
+}
+
+void	paint_sky(t_all *all, int x, float i, int color)
+{
+	float k;
+
+	k = 0;
+	while (k < i)
+	{
+		my_mlx_pixel_put(all, x, k, color);
+		k++;
+	}
+}
+
+void	paint_floor(t_all *all, int x, float i, int color)
+{
+	while (i < 600)
+	{
+		my_mlx_pixel_put(all, x, i, color);
+		i++;
 	}
 }
 
@@ -36,8 +57,8 @@ void	ft_cast_rays(t_all *all)
 	float i = fabs(c * cos(start));
 	int x = 0;
 	int chet = 1;
-	int color1 = get_trgb(0, 139, 0, 139);
-	int color2 = get_trgb(0, 250, 139, 200);
+	int color1 = get_trgb(0, 255, 136, 0);
+	int color2 = get_trgb(0, 100, 139, 200);
 	int tmp_color = 0;
 	float tmp = 0;
 
@@ -49,17 +70,16 @@ void	ft_cast_rays(t_all *all)
 		{
 			ray.x += cos(start);
 			ray.y += sin(start);
-			if (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] == '1')
-				break;
+		//	if (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] == '1')
+		//		break;
 			c += 0.6;
 			//my_mlx_pixel_put(all, ray.x, ray.y, 0x990099);
 		}
 		printf("c(%d) = %f\n", chet++, c); 
 
-		i = c * fabs(cos(start - all->plr->a));	
-		for (float k = 0; k < i; k++)
-			my_mlx_pixel_put(all, x, k, get_trgb(0, 8, 232, 222));
-		while (++i < 600 - c * fabs(cos(start - all->plr->a)))
+		i = c * fabs(cos(start));	
+		paint_sky(all, x, i, get_trgb(0, 8, 232, 222));
+		while (i < 600 - c * fabs(cos(start)))
 		{
 			//printf("c(%d) = %f\n", chet++, c); 
 			if (fabsf(c - tmp) > 10)
@@ -69,14 +89,11 @@ void	ft_cast_rays(t_all *all)
 				color2 = tmp_color;
 			}
 			my_mlx_pixel_put(all, x, i, color1);
-			//my_mlx_pixel_put(all, x + 1, i, color1);
 			tmp = c;
+			i += 1;
 		}
-		for (float k = i; k < 600; k++)
-			my_mlx_pixel_put(all, x, k, get_trgb(0, 61, 41, 31));
-
+		paint_floor(all, x, i, get_trgb(0, 61, 41, 31));
 		x+=1;
-		i = -1;
 		c = 0.0;
 		start += PI/3 / 800;
 	}
