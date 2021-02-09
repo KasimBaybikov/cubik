@@ -6,7 +6,7 @@
 #    By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/21 21:49:26 by kasimbayb         #+#    #+#              #
-#    Updated: 2021/01/18 12:12:02 by kasimbayb        ###   ########.fr        #
+#    Updated: 2021/02/09 18:07:31 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ OBJS = ${SRCS:.c=.o}
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Ofast
 
 MLX = mlx/
 

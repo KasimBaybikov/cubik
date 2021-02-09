@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:17:25 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/02/05 00:52:29 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/02/09 20:00:20 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	ft_cast_rays(t_all *all)
 
 	float i = fabs(c * cos(start));
 	int x = 0;
-	int chet = 1;
 	int color1 = get_trgb(0, 255, 136, 0);
 	int color2 = get_trgb(0, 100, 139, 200);
 	int tmp_color = 0;
@@ -70,16 +69,16 @@ void	ft_cast_rays(t_all *all)
 		{
 			ray.x += cos(start);
 			ray.y += sin(start);
-		//	if (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] == '1')
-		//		break;
+			if (all->map[(int)(ray.y / RECT)][(int)(ray.x / RECT)] == '1')
+				break;
 			c += 0.6;
 			//my_mlx_pixel_put(all, ray.x, ray.y, 0x990099);
 		}
-		printf("c(%d) = %f\n", chet++, c); 
+		//printf("c(%d) = %f\n", chet++, c); 
 
-		i = c * fabs(cos(start));	
+		i = c * fabs(cos(start - all->plr->a));	
 		paint_sky(all, x, i, get_trgb(0, 8, 232, 222));
-		while (i++ < 600 - c * fabs(cos(start)))
+		while (i++ <  600 -  c* fabs(cos(start - all->plr->a)))
 		{
 			//printf("c(%d) = %f\n", chet++, c); 
 			if (fabsf(c - tmp) > 10)

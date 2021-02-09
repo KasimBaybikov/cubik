@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:21:27 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/01/20 11:26:16 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/02/09 20:16:53 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int		key_press(int key, t_all *all)
 	if (key == 53)
 		exit(0);
 	draw_map_rect(all, get_trgb(0, 255, 150, 200));
-//	draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));
-//	ft_cast_ray(all);
-	ft_cast_rays(all);
+	draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));
+	//ft_cast_ray(all);
+	//ft_cast_rays(all);
 	//mlx_put_image_to_window(all->win->mlx, all->win->win, all->win->img, 0, 0);
 	//free(all->win->img);
 	//free(all->win.addr);
