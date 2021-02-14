@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/02/14 18:33:56 by rvernon          ###   ########.fr        #
+#    Updated: 2021/02/14 18:58:18 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SEP = \#\#\#\#\#\#\#
 CC = gcc
 
 MLX_D = libs/mlx/
-LIB_D = libs/libft/
+LIB_D = libs/libf/
 
 MLX = libmlx.dylib
 LIB = libft.a
