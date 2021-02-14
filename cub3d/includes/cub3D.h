@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
+/*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/03 16:40:23 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/02/14 17:59:58 by rvernon          ###   ########.fr       */
+/*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
+/*   Updated: 2021/02/14 17:51:13 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef CUB3D_H
+# define CUB3D_H
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int i;
+# include "../libs/mlx/mlx.h"
+# include "libft.h"
+# include <math.h>
 
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
-}
+
+#endif

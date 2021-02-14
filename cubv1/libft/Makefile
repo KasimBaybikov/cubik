@@ -6,7 +6,7 @@
 #    By: rvernon <rvernon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/30 13:32:12 by rvernon           #+#    #+#              #
-#    Updated: 2021/01/03 16:41:24 by kasimbayb        ###   ########.fr        #
+#    Updated: 2021/02/13 17:30:14 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,10 +71,9 @@ SRCS = ft_memset.c\
 		printf/ft_utils.c\
 		printf/ft_printf.c\
 
-HEADER = libft.h  
 OBJS = ${SRCS:.c=.o}
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I includes/
 
 all:    ${NAME}
 

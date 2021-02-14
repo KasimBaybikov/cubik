@@ -6,11 +6,11 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 15:19:21 by rvernon           #+#    #+#             */
-/*   Updated: 2020/12/13 20:07:45 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/13 17:55:35 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "libftprintf.h"
 
 char		*ft_forbig(char *s)
 {

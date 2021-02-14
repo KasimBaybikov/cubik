@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 13:05:21 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/02/09 20:43:06 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/11 13:23:49 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ void	draw_map(t_all *all)
 	all->win->win = mlx_new_window(all->win->mlx, 800, 600, "Cub3D");
 	draw_map_rect(all, get_trgb(0, 255, 150, 200));
 	get_pos_player(all);
-	//draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));
+	draw_player(all, RECT, all->plr->x, all->plr->y, get_trgb(0, 10, 20, 200));
 	//ft_cast_rays(all);
 	//mlx_key_hook(all->win->win, key_press, all);
-	mlx_hook(all->win->win, 2, (1L << 0), key_press, all);
+	mlx_hook(all->win->win, 2, 1, key_press, all);
 	mlx_loop(all->win->mlx);
 }

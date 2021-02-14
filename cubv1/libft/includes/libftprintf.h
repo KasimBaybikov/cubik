@@ -6,13 +6,13 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 14:37:35 by rvernon           #+#    #+#             */
-/*   Updated: 2020/12/30 23:32:53 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/02/13 17:30:43 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
-# include "../libft.h"
+# include "libft.h"
 # include <stdarg.h>
 # include <stdio.h>
 
