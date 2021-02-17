@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/15 15:31:03 by kasimbayb        ###   ########.fr       */
+/*   Created: 2021/02/15 15:26:57 by kasimbayb         #+#    #+#             */
+/*   Updated: 2021/02/15 15:34:01 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "cub3d.h"
 
-# include "../libs/mlx/mlx.h"
-# include "libft.h"
-# include <math.h>
-
-
-void	error(int error);
-
-
-#endif
+void	error(int error)
+{
+	if (error == 1)
+		ft_printf("\033[31mERROR: invalid file name\n\033[0m");
+}

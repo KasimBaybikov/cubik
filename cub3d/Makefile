@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/02/15 15:15:46 by kasimbayb        ###   ########.fr        #
+#    Updated: 2021/02/15 15:29:51 by kasimbayb        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ LIB = libft.a
 CFLAGS = -Wall -Wextra -Werror -I$(MLX_D) -Iincludes/ -I$(LIB_D)includes/ -fsanitize=address -Ofast
 
 FILES = cub3d.c\
+		error.c\
 
 SRCS = $(addprefix srcs/, $(FILES))
 

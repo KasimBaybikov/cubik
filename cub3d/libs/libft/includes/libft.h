@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 12:41:56 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/14 14:52:33 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/15 15:33:00 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int					ft_tolower(int c);
 char				*ft_strnstr(const char *big, const char *little,
 					size_t len);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_strcmp(char *s1, char *s2);
 int					ft_atoi(const char *str);
 char				*ft_strdup(const char *src);
 void				*ft_calloc(size_t count, size_t size);
