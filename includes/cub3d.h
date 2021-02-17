@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/17 14:40:45 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/17 15:21:51 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,27 @@ typedef struct
 
 typedef struct
 {
+	int floor_clr;
+	int ceilling_clr;
+}	t_clr;
+
+typedef struct
+{
+	char *n;
+	char *s;
+	char *w;
+	char *e;
+	char *spr;
+}	t_tex;
+
+typedef struct
+{
 	char **map;
 	t_win *win;
 	t_plr *plr;
-} t_all;
+	t_clr *clr;
+	t_tex *tex;
+}	t_all;
 
 void	error(int error);
 void	start(char *s);

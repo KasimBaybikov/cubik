@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:29:21 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/17 14:43:32 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/17 15:22:27 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 char *find_key(char *line)
 {
-	(void)line;
 	int i;
 
 	i = 0;
+	while (line[i] == ' ')
+		i++;
+	while (line[i] != ' ')
+		;
 	return (line);
 }
 
