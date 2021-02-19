@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 12:45:17 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/17 13:25:12 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/19 20:46:00 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int ac, char **av)
 		error(1);
 	else if (ac == 2 && check_map_name(av[1]) == 1)
 		start(av[1]);
+	sleep(3);
 	//else if (argc == 3 && check_map_name(av[2]) == 1)
 	//	screen(av[2]);
 }

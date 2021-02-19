@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:26:57 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/02/17 13:20:46 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/19 18:23:55 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,9 @@ void	error(int error)
 		ft_printf("\033[31mERROR: invalid file name\n\033[0m");
 	else if (error == 2)
 		ft_printf("\033[31mERROR: file cannot be opened\n\033[0m");
+	else if (error == 3)
+		ft_printf("\033[31mERROR: invalid argument\n\033[0m");
+	else if (error == 4)
+		ft_printf("\033[32mERROR: continue\n\033[0m");
+
 }

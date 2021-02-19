@@ -6,21 +6,11 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 17:52:18 by rvernon           #+#    #+#             */
-/*   Updated: 2020/11/24 17:29:26 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/19 13:07:33 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-int			ft_strlen(char *s)
-{
-	int i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 int			find_n(char *cache)
 {
@@ -52,27 +42,7 @@ char		*ft_strchr(const char *s, int c)
 		return (NULL);
 }
 
-char		*ft_strdup(const char *src)
-{
-	int		j;
-	int		len;
-	char	*str;
 
-	len = 0;
-	j = 0;
-	while (src[len])
-		len++;
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (!str)
-		return (NULL);
-	while (j < len)
-	{
-		str[j] = src[j];
-		j++;
-	}
-	str[j] = '\0';
-	return (str);
-}
 
 char		*ft_strjoin(char *s1, char *s2)
 {
