@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_f2.c                                           :+:      :+:    :+:   */
+/*   get_c.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/20 10:43:09 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/20 18:54:34 by rvernon          ###   ########.fr       */
+/*   Created: 2021/02/20 17:50:11 by rvernon           #+#    #+#             */
+/*   Updated: 2021/02/20 18:57:06 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		find_dot(char *line)
+static int		find_dot(char *line)
 {
 	int dot;
 	int i;
@@ -28,21 +28,21 @@ int		find_dot(char *line)
 	return (dot);
 }
 
-void characters_fc(char *line)
+static void characters_fc(char *line)
 {
 	int i;
 
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == ' ' || line[i] == 'F' || line[i] == ',' || (line[i] <= '9' && line[i] >= '0'))
+		if (line[i] == ' ' || line[i] == 'C' || line[i] == ',' || (line[i] <= '9' && line[i] >= '0'))
 			i++;
 		else
 			error(3);
 	}
 }
 
-int find_numbers(char *line)
+static int find_numbers(char *line)
 {
 	int i;
 	int res;
@@ -65,7 +65,7 @@ int find_numbers(char *line)
 	return (res);
 }
 
-void	get_f_color(t_all *all, char *line)
+void	get_c_color(t_all *all, char *line)
 {
 	int is_num;
 
@@ -80,12 +80,12 @@ void	get_f_color(t_all *all, char *line)
 				error(3);
 				exit(1);
 			}
-			else if (all->clr->f_r == -1)
-				all->clr->f_r = ft_atoi(line);
-			else if (all->clr->f_g == -1)
-				all->clr->f_g = ft_atoi(line);
-			else if (all->clr->f_b == -1)
-				all->clr->f_b = ft_atoi(line);
+			else if (all->clr->c_r == -1)
+				all->clr->c_r = ft_atoi(line);
+			else if (all->clr->c_g == -1)
+				all->clr->c_g = ft_atoi(line);
+			else if (all->clr->c_b == -1)
+				all->clr->c_b = ft_atoi(line);
 		}
 		else if (*line == ' ' || *line == ',')
 			is_num = 0;
@@ -93,19 +93,19 @@ void	get_f_color(t_all *all, char *line)
 	}
 }
 
-void	get_f(t_all *all, char *line, t_key *key)
+void	get_c(t_all *all, char *line, t_key *key)
 {
 	int i;
 
-	key->f = 0;
+	key->c = 0;
 	i = 0;
 	characters_fc(line);
 	if (find_dot(line) != 2)
 		error(3);
 	if (find_numbers(line) != 4)
 		error(3);
-	get_f_color(all, line);
-	printf("%d\n", all->clr->f_r);
-	printf("%d\n", all->clr->f_g);
-	printf("%d\n", all->clr->f_b);
+	get_c_color(all, line);
+	printf("%d\n", all->clr->c_r);
+	printf("%d\n", all->clr->c_g);
+	printf("%d\n", all->clr->c_b);
 }

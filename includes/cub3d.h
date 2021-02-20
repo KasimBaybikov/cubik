@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/19 19:20:33 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/20 19:52:47 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,31 @@ typedef struct
 	t_tex *tex;
 }	t_all;
 
+typedef struct
+{
+	int r;
+	int no;
+	int so;
+	int we;
+	int ea;
+	int s;
+	int f;
+	int c;
+}	t_key;
+
 void	error(int error);
-void	start(char *s);
+void	start(char *map_name, t_all *all);
 int		check_map_name(char *name);
 void	init_all(t_all *all);
 void	parse_file(t_all *all, int fd);
 
-void	get_r(t_all *all, char *line);
-void	get_no(t_all *all, char *line);
-void	get_so(t_all *all, char *line);
-void	get_we(t_all *all, char *line);
-void	get_ea(t_all *all, char *line);
-void	get_s(t_all *all, char *line);
-void	get_f(t_all *all, char *line);
+void	get_r(t_all *all, char *line, t_key *key);
+void	get_no(t_all *all, char *line, t_key *key);
+void	get_so(t_all *all, char *line, t_key *key);
+void	get_we(t_all *all, char *line, t_key *key);
+void	get_ea(t_all *all, char *line, t_key *key);
+void	get_s(t_all *all, char *line, t_key *key);
+void	get_f(t_all *all, char *line, t_key *key);
+void	get_c(t_all *all, char *line, t_key *key);
+void	init_key(t_key *key);
 #endif

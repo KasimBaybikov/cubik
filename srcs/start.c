@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:39:53 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/02/19 12:14:40 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/20 19:53:32 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ int	check_map_name(char *name)
 	return (0);
 }
 
-void start(char *map_name)
+void start(char *map_name, t_all *all)
 {
 	int fd;
-	t_all all;
 
 	fd = 0;
-	init_all(&all);
+	init_all(all);
 	if ((fd = open(map_name, O_RDONLY)) == -1)
 		return (error(2));
-	parse_file(&all, fd);
+	parse_file(all, fd);
+	close(fd);
 }

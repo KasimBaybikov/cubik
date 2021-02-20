@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/02/19 21:43:34 by rvernon          ###   ########.fr        #
+#    Updated: 2021/02/20 18:53:11 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIB_D = libs/libft/
 MLX = libmlx.dylib
 LIB = libft.a
 
-CFLAGS = -Wall -Wextra -Werror -g -I$(MLX_D) -Iincludes/ -I$(LIB_D)includes/ -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -I$(MLX_D) -Iincludes/ -I$(LIB_D)includes/ 
 
 FILES = start.c\
 		error.c\
@@ -30,6 +30,7 @@ FILES = start.c\
 		parse_file.c\
 		get.c\
 		get_f.c\
+		get_c.c\
 
 SRCS = $(addprefix srcs/, $(FILES))
 
