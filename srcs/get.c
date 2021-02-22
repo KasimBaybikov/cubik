@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 12:01:43 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/20 19:38:43 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/22 11:47:51 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	get_r(t_all *all, char *line, t_key *key)
 	int i;
 
 	key->r = 0;
+	key->flag++;
 	i = 0;
 	characters_r(line);
 	split = ft_split(line, ' ');
@@ -63,6 +64,7 @@ void	get_no(t_all *all, char *line, t_key *key)
 	int i;
 
 	key->no = 0;
+	key->flag++;
 	i = 0;
 	split = ft_split(line, ' ');
 	while (split[i])
@@ -79,6 +81,7 @@ void	get_so(t_all *all, char *line, t_key *key)
 	int i;
 
 	key->so = 0;
+	key->flag++;
 	i = 0;
 	split = ft_split(line, ' ');
 	while (split[i])
@@ -86,7 +89,6 @@ void	get_so(t_all *all, char *line, t_key *key)
 	if (i != 2)
 		error(3);
 	all->tex->so = ft_strdup(split[1]);
-	free(all->tex->so);
 	free_split(split);
 }
 
@@ -96,6 +98,7 @@ void	get_we(t_all *all, char *line, t_key *key)
 	int i;
 
 	key->we = 0;
+	key->flag++;
 	i = 0;
 	split = ft_split(line, ' ');
 	while (split[i])
@@ -103,7 +106,6 @@ void	get_we(t_all *all, char *line, t_key *key)
 	if (i != 2)
 		error(3);
 	all->tex->we = ft_strdup(split[1]);
-	free(all->tex->we);
 	free_split(split);
 }
 
@@ -113,6 +115,7 @@ void	get_ea(t_all *all, char *line, t_key *key)
 	int i;
 
 	key->ea = 0;
+	key->flag++;
 	i = 0;
 	split = ft_split(line, ' ');
 	while (split[i])
@@ -129,6 +132,7 @@ void	get_s(t_all *all, char *line, t_key *key)
 	int i;
 
 	key->s = 0;
+	key->flag++;
 	i = 0;
 	split = ft_split(line, ' ');
 	while (split[i])
@@ -138,5 +142,3 @@ void	get_s(t_all *all, char *line, t_key *key)
 	all->tex->spr = ft_strdup(split[1]);
 	free_split(split);
 }
-
-

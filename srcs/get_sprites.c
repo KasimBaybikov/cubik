@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_sprites.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/17 12:45:17 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/22 17:31:33 by rvernon          ###   ########.fr       */
+/*   Created: 2021/02/22 17:32:21 by rvernon           #+#    #+#             */
+/*   Updated: 2021/02/22 22:11:43 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	main(int ac, char **av)
+int	get_count_sprites(t_all *all)
 {
-	t_all all;
+	while (all->map[i])
+	{
+		while (all->map[i][j])
+		{
+			if (all->map[i][j] == '2')
+				count++;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (count);
+}
+void	get_sprites(t_all *all)
+{
+	int count;
 
-	if (ac == 1)
-		error(1);
-	else if (ac == 2 && check_map_name(av[1]) == 1)
-		start(av[1], &all);
-	sleep(3);
-	//else if (argc == 3 && check_map_name(av[2]) == 1)
-	//	screen(av[2]);
+	count = get_count_sprites(all);
+
+	
 }

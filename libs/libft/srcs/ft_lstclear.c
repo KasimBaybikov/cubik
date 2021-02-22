@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 16:35:41 by rvernon           #+#    #+#             */
-/*   Updated: 2020/11/09 16:58:00 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/22 17:49:08 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	ptmp = *lst;
 	while (plist)
 	{
-		del(plist->content);
+		if (del != NULL)
+			del(plist->content);
 		ptmp = plist->next;
 		free(plist);
 		plist = ptmp;

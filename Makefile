@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/02/20 18:53:11 by rvernon          ###   ########.fr        #
+#    Updated: 2021/02/22 23:30:43 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,18 +28,19 @@ FILES = start.c\
 		main.c\
 		init_all.c\
 		parse_file.c\
+		parse_map.c\
 		get.c\
 		get_f.c\
 		get_c.c\
+		get_pos_plr.c\
 
 SRCS = $(addprefix srcs/, $(FILES))
 
 OBJS = $(SRCS:.c=.o)
 
-
 all: $(NAME)
 
-$(NAME) : $(MLX) $(LIB) $(OBJS)
+$(NAME) : $(MLX) $(OBJS) $(LIB_D)$(LIB)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibs/libft/ -lft -L. -lmlx
 	@echo "\033[1;32mDone!"
 	@echo "\033[0m"
@@ -49,7 +50,7 @@ $(MLX) : $(MLX_D)
 	@$(MAKE) -C $(MLX_D)
 	mv $(MLX_D)$(MLX) .
 
-$(LIB) : $(LIB_D)
+$(LIB_D)$(LIB) :
 	@$(MAKE) -C $(LIB_D)
 
 clean:
@@ -67,3 +68,5 @@ fclean : clean
 	@echo "\033[0m"
 
 re: fclean all
+
+.PHONY: all clean fclean re

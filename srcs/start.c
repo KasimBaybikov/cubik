@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:39:53 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/02/20 19:53:32 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/22 22:57:17 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void start(char *map_name, t_all *all)
 	fd = 0;
 	init_all(all);
 	if ((fd = open(map_name, O_RDONLY)) == -1)
-		return (error(2));
+		error(2);
 	parse_file(all, fd);
+	parse_map(all, fd); //когда отсюда выходишь утечка
+	get_pos_plr(all);
+//	get_sprites(all);
 	close(fd);
 }

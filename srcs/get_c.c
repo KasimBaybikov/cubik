@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 17:50:11 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/20 18:57:06 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/22 11:48:15 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	get_c(t_all *all, char *line, t_key *key)
 	int i;
 
 	key->c = 0;
+	key->flag++;
 	i = 0;
 	characters_fc(line);
 	if (find_dot(line) != 2)
@@ -105,7 +106,4 @@ void	get_c(t_all *all, char *line, t_key *key)
 	if (find_numbers(line) != 4)
 		error(3);
 	get_c_color(all, line);
-	printf("%d\n", all->clr->c_r);
-	printf("%d\n", all->clr->c_g);
-	printf("%d\n", all->clr->c_b);
 }

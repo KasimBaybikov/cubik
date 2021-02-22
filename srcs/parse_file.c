@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:29:21 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/20 19:28:42 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/22 12:52:55 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int is_empty(char *line)
 	return (1);
 }
 
-void	find_key(t_all *all, char *line, t_key *key)
+int		find_key(t_all *all, char *line, t_key *key)
 {
 	int i;
 
@@ -48,10 +48,11 @@ void	find_key(t_all *all, char *line, t_key *key)
 		get_f(all, line, key);
 	else if (key->c && line[i] == 'C' && line[i+1] == ' ')
 		get_c(all, line, key);
-	else;
-		//error(1); ///Добавь Чистку
-
-
+	else if (key->flag != 8)
+		error(3); ///Добавь Чистку
+	if (key->flag == 8)
+		return (0);
+	return (1);
 }
 
 void parse_file(t_all *all, int fd)
@@ -68,9 +69,8 @@ void parse_file(t_all *all, int fd)
 		_free = line;
 		line = ft_strtrim(line, " ");
 		free(_free);
-
-		//printf(".%s\n", line);
-		find_key(all, line, &key);
+		if (find_key(all, line, &key) == 0)
+			break ;
 		free(line);
 	}
 	free(line);
