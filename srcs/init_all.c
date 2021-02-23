@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/22 11:39:51 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/23 15:21:38 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ void	init_all(t_all *all)
 	init_tex(all->tex);
 	init_clr(all->clr);
 	all->map = 0;
-
+	all->map_w = 0;
+	all->map_h = 0;
 }
 
 void	init_key(t_key *key)

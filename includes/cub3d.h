@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/22 18:00:13 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/23 19:10:31 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ typedef struct
 	t_clr *clr;
 	t_tex *tex;
 	t_spr *spr;
+	int map_w;
+	int map_h;
 }	t_all;
 
 typedef struct
@@ -91,6 +93,7 @@ int		check_map_name(char *name);
 void	init_all(t_all *all);
 void	parse_file(t_all *all, int fd);
 void	parse_map(t_all *all, int fd);
+int		valid_line(char *line);
 
 int		is_empty(char *line);
 void	get_r(t_all *all, char *line, t_key *key);
@@ -101,7 +104,7 @@ void	get_ea(t_all *all, char *line, t_key *key);
 void	get_s(t_all *all, char *line, t_key *key);
 void	get_f(t_all *all, char *line, t_key *key);
 void	get_c(t_all *all, char *line, t_key *key);
-void	get_pos_plr(t_all *all);
+int		get_pos_plr(t_all *all);
 void	get_sprites(t_all *all);
 void	init_key(t_key *key);
 #endif

@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_pos_plr.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/22 17:13:58 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/23 16:05:44 by rvernon          ###   ########.fr       */
+/*   Created: 2021/02/23 19:06:00 by rvernon           #+#    #+#             */
+/*   Updated: 2021/02/23 19:18:02 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-void	get_xy(int i, int j, t_all *all)
-{
-	all->plr->x = j;
-	all->plr->y = i;
-}
 
-int		get_pos_plr(t_all *all)
+int		valid_line(char *line)
 {
 	int i;
-	int j;
 	int flag;
 
 	i = 0;
-	j = 0;
 	flag = 0;
-	while (all->map[i])
+	while (line[i])
 	{
-		while (all->map[i][j])
-		{
-			if (all->map[i][j] == 'W' || all->map[i][j] == 'E' ||all->map[i][j] == 'N' ||all->map[i][j] == 'S')
-			{
-				flag++;
-				get_xy(i, j, all);
-			}
-			j++;
-		}
-		j = 0;
+		if (line[i] != ' ' && line[i] != '0' && line[i] != '1' && line[i] != '2'
+				&& line[i] != 'W' && line[i] != 'E' && line[i] != 'N' && line[i] != 'S')
+			return (0);
 		i++;
 	}
-	return (flag);
+	return (1);
 }
