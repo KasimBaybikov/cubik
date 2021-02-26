@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 17:32:21 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/24 16:34:48 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/26 12:39:03 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,13 @@ int	get_count_sprites(t_all *all)
 	return (count);
 }
 
-void	get_sprites(t_all *all)
+void	get_sprites(t_all *all, int x, int y, int i)
 {
 	int count;
-	int x;
-	int y;
-	int i;
 
-	x = 0;
-	y = 0;
-	i = 0;
 	count = get_count_sprites(all);
 	free(all->spr);
-	all->spr = malloc(sizeof(t_spr) * (count + 1));
+	all->spr = malloc(sizeof(t_spr) * (count));
 	while (all->map[x])
 	{
 		while (all->map[x][y])
@@ -59,6 +53,7 @@ void	get_sprites(t_all *all)
 			}
 			y++;
 		}
+		y = 0;
 		x++;
 	}
 }

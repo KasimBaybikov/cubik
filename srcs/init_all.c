@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/24 16:37:06 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/26 14:21:41 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ static	void init_tex(t_tex *tex)
 
 static	void	init_win(t_win *win)
 {
-	win->mlx = mlx_init();
-	win->win = 0;
 	win->w = 0;
 	win->h = 0;
 }
@@ -34,7 +32,10 @@ static	void	init_plr(t_plr *plr)
 {
 	plr->x = 0.0;
 	plr->y = 0.0;
-	plr->a = 0.0;
+	plr->dir_x = 0;
+	plr->dir_y = 0;
+	plr->plane_x = 0;
+	plr->plane_y = 0;
 }
 
 static	void	init_clr(t_clr *clr)
@@ -56,6 +57,8 @@ void	init_all(t_all *all)
 	if (!(all->tex = malloc(sizeof(t_tex) * 1)))
 		return ;
 	if (!(all->clr = malloc(sizeof(t_clr) * 1)))
+		return ;
+	if (!(all->img = malloc(sizeof(t_img) * 1)))
 		return ;
 	init_win(all->win);
 	init_plr(all->plr);

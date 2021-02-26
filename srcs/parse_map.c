@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 12:42:36 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/24 16:33:58 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/26 12:38:59 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	make_map(t_all *all, t_list *head, int size)
 	}
 	if (get_pos_plr(all) != 1)
 		error(4);
-	get_sprites(all);
+	get_sprites(all, 0 , 0, 0);
 	make_fill(all);
 }
 

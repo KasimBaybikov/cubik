@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:39:53 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/02/24 12:50:50 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/26 13:04:59 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,7 @@ void start(char *map_name, t_all *all)
 	if ((fd = open(map_name, O_RDONLY)) == -1)
 		error(2);
 	parse_file(all, fd);
-	parse_map(all, fd); //когда отсюда выходишь утечка
-	int i = 0;
-	while (i < 10)
-	{
-		printf ("x: %d y: %d\n", all->spr[i].x, all->spr[i].y);
-		i++;
-	}
+	parse_map(all, fd);
+	draw(all);
 	close(fd);
 }

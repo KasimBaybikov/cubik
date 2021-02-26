@@ -5,9 +5,9 @@ NO ./path_to_the_north_texture
 SO            ./path_to_the_south_texture
 
 
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
-S ./path_to_the_sprite_texture
+WE ../textures
+EA ../textures
+S ../textures
 
 
 
@@ -22,6 +22,6 @@ C        225,          30,0
 1000000000000000000000000001
 100000000N000000000000111111
 10000000000000000000001
-1000000200000000000000111111
+1000002222000000000000111111
 1000000000000000200000000001
 1111111111111111111111111111
