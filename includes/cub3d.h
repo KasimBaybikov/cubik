@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/26 14:20:34 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/26 18:27:10 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include "libft.h"
 # include <math.h>
 # include <fcntl.h>
+# define move_speed 0.05
+# define rot_speed 0.05
 
 typedef struct
 {
@@ -30,10 +32,30 @@ typedef struct
 {
 	float x;
 	float y;
+}	t_vec;
+
+typedef struct
+{
+	float x;
+	float y;
 	float dir_x;
 	float dir_y;
 	float plane_x;
 	float plane_y;
+	float camera_x;
+	float ray_dir_x;
+	float ray_dir_y;
+	float side_dist_x;
+	float delta_dist_x;
+	float delta_dist_y;
+	float side_dist_y;
+	float perp_wall_dist;
+	int step_x;
+	int step_y;
+	int hit;
+	int side;
+	int map_x;
+	int map_y;
 }	t_plr;
 
 typedef struct
@@ -119,5 +141,5 @@ int		get_pos_plr(t_all *all);
 void	get_sprites(t_all *all, int x, int y, int i);
 void	init_key(t_key *key);
 int		rgb_make(int t, int r, int g, int b);
-void	draw(t_all *all);
+void	calculate(t_all *all);
 #endif

@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/26 14:21:41 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/26 18:27:14 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,20 @@ static	void	init_plr(t_plr *plr)
 	plr->dir_y = 0;
 	plr->plane_x = 0;
 	plr->plane_y = 0;
+	plr->camera_x = 0;
+	plr->ray_dir_x = 0;
+	plr->ray_dir_y = 0;
+	plr->side_dist_x = 0;
+	plr->delta_dist_x = 0;
+	plr->delta_dist_y = 0;
+	plr->side_dist_y = 0;
+	plr->perp_wall_dist = 0;
+	plr->step_x = 0;
+	plr->step_y = 0;
+	plr->hit = 0;
+	plr->side = 0;
+	plr->map_x = 0;
+	plr->map_y = 0;
 }
 
 static	void	init_clr(t_clr *clr)

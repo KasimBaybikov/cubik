@@ -19,15 +19,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e77b486-bc18-4f92-9641-56805b4af014" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/cubik.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cubik.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cub3D" beforeDir="false" afterPath="$PROJECT_DIR$/cub3D" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/cub3d.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/1.cub" beforeDir="false" afterPath="$PROJECT_DIR$/maps/1.cub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/get_sprites.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/get_sprites.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/draw.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/get_pos_plr.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/get_pos_plr.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/init_all.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/init_all.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mlx.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mlx.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/parse_file.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/parse_file.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/parse_map.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/parse_map.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/start.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/start.c" afterDir="false" />
     </list>
@@ -163,7 +163,7 @@
       <workItem from="1614158485233" duration="1049000" />
       <workItem from="1614166544773" duration="182000" />
       <workItem from="1614181990706" duration="59000" />
-      <workItem from="1614330712620" duration="1722000" />
+      <workItem from="1614330712620" duration="3233000" />
     </task>
     <servers />
   </component>

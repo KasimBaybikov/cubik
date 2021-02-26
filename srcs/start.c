@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:39:53 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/02/26 13:04:59 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/26 16:55:16 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void start(char *map_name, t_all *all)
 		error(2);
 	parse_file(all, fd);
 	parse_map(all, fd);
-	draw(all);
+	calculate(all);
 	close(fd);
 }
