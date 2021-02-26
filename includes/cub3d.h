@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/23 19:10:31 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/24 12:29:12 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ typedef struct
 
 typedef struct
 {
-	int **sprites;
+	int x;
+	int y;
 }	t_spr;
 
 typedef struct

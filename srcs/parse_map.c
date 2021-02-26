@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 12:42:36 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/23 19:07:23 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/24 16:33:58 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,17 @@ void	filled_map(char **map, char **fill_map)
 	}
 }
 
+void	free_fill(char **fill_map)
+{
+	int i;
+
+	i = 0;
+	while (fill_map[i])
+		free(fill_map[i++]);
+	free(fill_map);
+	fill_map = 0;
+}
+
 void	make_fill(t_all *all)
 {
 	int i;
@@ -69,6 +80,7 @@ void	make_fill(t_all *all)
 	fill_map[i] = 0;
 	filled_map(all->map, fill_map);
 	flood_fill(all, all->plr->x, all->plr->y, 6, fill_map);
+	free_fill(fill_map);
 }
 
 void	make_map(t_all *all, t_list *head, int size)
@@ -92,6 +104,7 @@ void	make_map(t_all *all, t_list *head, int size)
 	}
 	if (get_pos_plr(all) != 1)
 		error(4);
+	get_sprites(all);
 	make_fill(all);
 }
 

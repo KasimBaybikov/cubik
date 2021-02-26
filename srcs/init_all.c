@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/23 15:21:38 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/24 16:37:06 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static	void	init_plr(t_plr *plr)
 	plr->a = 0.0;
 }
 
-static	void init_clr(t_clr *clr)
+static	void	init_clr(t_clr *clr)
 {
 	clr->f_r = -1;
 	clr->f_g = -1;
@@ -61,6 +61,7 @@ void	init_all(t_all *all)
 	init_plr(all->plr);
 	init_tex(all->tex);
 	init_clr(all->clr);
+	all->spr = 0;
 	all->map = 0;
 	all->map_w = 0;
 	all->map_h = 0;

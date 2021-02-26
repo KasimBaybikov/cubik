@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/02/23 19:09:25 by rvernon          ###   ########.fr        #
+#    Updated: 2021/02/24 12:23:06 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ FILES = start.c\
 		get_f.c\
 		get_c.c\
 		get_pos_plr.c\
+		get_sprites.c\
 		utils.c\
 
 SRCS = $(addprefix srcs/, $(FILES))

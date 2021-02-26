@@ -19,11 +19,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e77b486-bc18-4f92-9641-56805b4af014" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/cubik.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cubik.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/cub3d.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/1.cub" beforeDir="false" afterPath="$PROJECT_DIR$/maps/1.cub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/error.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/error.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/get_pos_plr.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/get_pos_plr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/get_sprites.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/get_sprites.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/init_all.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/init_all.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/parse_map.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/parse_map.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/start.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/start.c" afterDir="false" />
@@ -119,16 +120,6 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Makefile Application.all" />
       <item itemvalue="Makefile Application.cub3D" />
@@ -156,7 +147,10 @@
       <workItem from="1614081822788" duration="173000" />
       <workItem from="1614082023827" duration="407000" />
       <workItem from="1614082433860" duration="1123000" />
-      <workItem from="1614088901011" duration="4056000" />
+      <workItem from="1614088901011" duration="4258000" />
+      <workItem from="1614158485233" duration="1049000" />
+      <workItem from="1614166544773" duration="182000" />
+      <workItem from="1614181990706" duration="59000" />
     </task>
     <servers />
   </component>
@@ -164,15 +158,6 @@
     <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/srcs/parse_map.c</url>
-          <line>71</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CLionNativeAppRunConfigurationType">
         <watch expression="i" language="ObjectiveC" />
