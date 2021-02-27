@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 13:08:12 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 17:52:11 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 20:52:41 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		key_down(int key, t_all *all)
 {
-	//printf("%d\n", key);
 	if (key == ESC_KEY)
 		all->hook->esc = 1;
 	if (key == W_KEY)
@@ -29,6 +28,7 @@ int		key_down(int key, t_all *all)
 		all->hook->left= 1;
 	if (key == RIGHT_KEY)
 		all->hook->right = 1;
-	//calculate(all);
+	if (key == SHIFT_KEY)
+		all->hook->shift = 1;
 	return (0);
 }

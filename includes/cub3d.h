@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 20:00:06 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 20:50:37 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 # include "libft.h"
 # include <math.h>
 # include <fcntl.h>
-# define move_speed 0.05
-# define rot_speed 0.05
+# define rot_speed 0.07
 # define ESC_KEY 53
 # define W_KEY 13
 # define A_KEY 0
@@ -26,6 +25,7 @@
 # define D_KEY 2
 # define LEFT_KEY 123
 # define RIGHT_KEY 124
+# define SHIFT_KEY 257
 
 typedef struct
 {
@@ -66,6 +66,7 @@ typedef struct
 	int side;
 	int map_x;
 	int map_y;
+	float move_speed;
 }	t_plr;
 
 typedef struct
@@ -111,6 +112,7 @@ typedef struct
 	int d;
 	int left;
 	int right;
+	int shift;
 }	t_hook;
 
 typedef struct

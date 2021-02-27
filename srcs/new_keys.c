@@ -6,11 +6,16 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 15:43:35 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 20:00:05 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 20:53:27 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	shift_speed(t_all *all)
+{
+	all->plr->move_speed = 0.12;
+}
 
 void	right_turn(t_plr *plr)
 {
@@ -40,6 +45,8 @@ void	left_turn(t_plr *plr)
 
 void	new_keys(t_all *all, t_plr *plr)
 {
+	if (all->hook->esc)
+		exit(0);
 	if (all->hook->w)
 		move_w(all, all->plr);
 	if (all->hook->s)
@@ -48,8 +55,10 @@ void	new_keys(t_all *all, t_plr *plr)
 		move_a(all, all->plr);
 	if (all->hook->d)
 		move_d(all, all->plr);
-	if(all->hook->right)
+	if (all->hook->right)
 		right_turn(all->plr);
-	if(all->hook->left)
+	if (all->hook->left)
 		left_turn(all->plr);
+	if (all->hook->shift)
+		shift_speed(all);
 }
