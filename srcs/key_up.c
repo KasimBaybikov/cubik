@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 14:07:16 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 14:30:33 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 17:46:14 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,20 @@
 
 int		key_up(int key, t_all *all)
 {
-	printf("%d\n", key);
 	if (key == ESC_KEY)
 		all->hook->esc = 0;
+	if (key == W_KEY)
+		all->hook->w = 0;
+	if (key == A_KEY)
+		all->hook->a = 0;
+	if (key == S_KEY)
+		all->hook->s = 0;
+	if (key == D_KEY)
+		all->hook->d = 0;
+	if (key == LEFT_KEY)
+		all->hook->left= 0;
+	if (key == RIGHT_KEY)
+		all->hook->right = 0;
 	return (0);
 
 }

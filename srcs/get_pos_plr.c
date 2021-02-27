@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 17:13:58 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 13:04:28 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 17:35:16 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int		get_pos_plr(t_all *all)
 				dir = all->map[i][j];
 				flag++;
 				get_xy(i, j, all, dir);
+				all->map[i][j] = '0';
 			}
 			j++;
 		}

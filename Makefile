@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/02/27 14:31:11 by rvernon          ###   ########.fr        #
+#    Updated: 2021/02/27 19:50:57 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIB_D = libs/libft/
 MLX = libmlx.dylib
 LIB = libft.a
 
-CFLAGS = -Wall -Wextra -Werror -g -I$(MLX_D) -Iincludes/ -I$(LIB_D)includes/ 
+CFLAGS = -g -I$(MLX_D) -Iincludes/ -I$(LIB_D)includes/ -framework OpenGL -framework AppKit
 
 FILES = start.c\
 		error.c\
@@ -37,9 +37,12 @@ FILES = start.c\
 		utils.c\
 		calculate.c\
 		mlx.c\
-		key_press.c\
-		key_release.c\
+		key_down.c\
+		key_up.c\
 		floor_paint.c\
+		ceiling_paint.c\
+		new_keys.c\
+		move.c\
 
 SRCS = $(addprefix srcs/, $(FILES))
 
@@ -55,7 +58,7 @@ $(NAME) : $(MLX) $(OBJS) $(LIB_D)$(LIB)
 $(MLX) : $(MLX_D)
 	@echo "\033[1;32m$(SEP) Compiling... $(SEP)\033[0;32m"
 	@$(MAKE) -C $(MLX_D)
-	mv $(MLX_D)$(MLX) .
+	#mv $(MLX_D)$(MLX) .
 
 $(LIB_D)$(LIB) :
 	@$(MAKE) -C $(LIB_D)

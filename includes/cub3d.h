@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 14:30:34 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 20:00:06 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # define move_speed 0.05
 # define rot_speed 0.05
 # define ESC_KEY 53
+# define W_KEY 13
+# define A_KEY 0
+# define S_KEY 1
+# define D_KEY 2
+# define LEFT_KEY 123
+# define RIGHT_KEY 124
 
 typedef struct
 {
@@ -157,10 +163,15 @@ int		get_pos_plr(t_all *all);
 void	get_sprites(t_all *all, int x, int y, int i);
 void	init_key(t_key *key);
 int		rgb_make(int t, int r, int g, int b);
-void	calculate(t_all *all);
+int		calculate(t_all *all);
 
 int		key_down(int key, t_all *all);
 int		key_up(int key, t_all *all);
 void	floor_paint(t_all *all);
-void	celling(t_all *all);
+void	ceiling_paint(t_all *all);
+void	new_keys(t_all *all, t_plr *plr);
+
+void	move_w(t_all *all, t_plr *plr);
+void	move_s(t_all *all, t_plr *plr);
+void	move_a(t_all *all, t_plr *plr);
 #endif

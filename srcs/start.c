@@ -6,7 +6,7 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:39:53 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/02/27 14:22:42 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 19:17:33 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ void start(char *map_name, t_all *all)
 	parse_map(all, fd);
 	close(fd);
 	all_mlx(all);
+	mlx_do_key_autorepeatoff(all->win->mlx);
 	mlx_hook(all->win->win, 2, 0, &key_down, all);
 	mlx_hook(all->win->win, 3, 0, &key_up, all);
+	mlx_loop_hook(all->win->mlx, &calculate, all);
 	mlx_loop(all->win->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 14:30:32 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 19:17:28 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	ray_dir(t_all *all, t_plr *plr, int x)
 	plr->ray_dir_y = plr->dir_y + plr->plane_y * plr->camera_x;
 	plr->map_x = (int)all->plr->x;
 	plr->map_y = (int)all->plr->y;
-	plr-> delta_dist_x = (plr->ray_dir_y == 0) ? 0 : ((plr->ray_dir_x == 0) ? 1 : fabs(1 / plr->ray_dir_x));
-	plr-> delta_dist_y = (plr->ray_dir_x == 0) ? 0 : ((plr->ray_dir_y == 0) ? 1 : fabs(1 / plr->ray_dir_y));
+	plr-> delta_dist_x = fabs(1 / plr->ray_dir_x);
+	plr-> delta_dist_y = fabs(1 / plr->ray_dir_y);
 	//plr-> delta_dist_y = fabs(1 / plr->ray_dir_y);
 	plr->hit = 0;
 }
@@ -84,7 +84,7 @@ void	raycast(t_all *all, t_plr *plr)
 			plr->map_y += plr->step_y;
 			plr->side = 1;
 		}
-		if (all->map[plr->map_y][plr->map_x] != '0')
+		if (all->map[plr->map_y][plr->map_x] == '1')
 			plr->hit = 1;
 	}
 	if (plr->side == 0)
@@ -115,21 +115,25 @@ void	fence(t_all *all, int draw_start, int draw_end, int x, int color)
 		i++;
 	}
 }
-void	calculate(t_all *all)
+int		calculate(t_all *all)
 {
 	int x;
 
 	x = 0;
 	floor_paint(all);
-	//celling(all);
+	ceiling_paint(all);
+	new_keys(all, all->plr);
 	while (x < all->win->w)
 	{
 		ray_dir(all, all->plr, x);
 		side_dist_x(all->plr);
 		raycast(all, all->plr);
 		draw_start_end(all, all->plr);
-		fence(all, all->plr->draw_start, all->plr->draw_end, x, rgb_make(0, 101, 0, 101));
+		fence(all, all->plr->draw_start, all->plr->draw_end, x, rgb_make(0, 255, 176, 0));
 		x++;
 	}
 	mlx_put_image_to_window(all->win->mlx, all->win->win, all->img->img, 0, 0);
+	//printf("w:%d a:%d s:%d d:%d <-%d ->%d\n", all->hook->w, all->hook->a, all->hook->s, all->hook->d, all->hook->left, all->hook->right);
+	//printf("x- %f y- %f\n", all->plr->x, all->plr->y);
+	return (0);
 }
