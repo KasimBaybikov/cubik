@@ -24,10 +24,10 @@
       <change beforePath="$PROJECT_DIR$/cub3D" beforeDir="false" afterPath="$PROJECT_DIR$/cub3D" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/cub3d.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/1.cub" beforeDir="false" afterPath="$PROJECT_DIR$/maps/1.cub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/draw.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/calculate.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/calculate.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/get_pos_plr.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/get_pos_plr.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/init_all.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/init_all.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/parse_file.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/parse_file.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mlx.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mlx.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/parse_map.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/parse_map.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/start.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/start.c" afterDir="false" />
     </list>
@@ -97,11 +97,6 @@
     <property name="settings.editor.selected.configurable" value="CLionExternalConfigurable" />
   </component>
   <component name="RunManager" selected="Makefile Application.all">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="all" type="CLionNativeAppRunConfigurationType" PROGRAM_PARAMS="maps/1.cub" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cubik" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/cub3D">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -125,6 +120,11 @@
     <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cubik" TARGET_NAME="re" CONFIG_NAME="re" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
@@ -163,7 +163,8 @@
       <workItem from="1614158485233" duration="1049000" />
       <workItem from="1614166544773" duration="182000" />
       <workItem from="1614181990706" duration="59000" />
-      <workItem from="1614330712620" duration="3233000" />
+      <workItem from="1614330712620" duration="3373000" />
+      <workItem from="1614416088170" duration="3725000" />
     </task>
     <servers />
   </component>

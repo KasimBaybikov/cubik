@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 17:13:58 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/26 19:54:42 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 13:04:28 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	dir_w(t_plr *plr)
 	plr->dir_x = -1;
 	plr->dir_y = 0;
 	plr->plane_x = 0;
-	plr->plane_y = 0.66;
+	plr->plane_y = -0.66;
 }
 
 void	dir_e(t_plr *plr)
@@ -25,14 +25,14 @@ void	dir_e(t_plr *plr)
 	plr->dir_x = 1;
 	plr->dir_y = 0;
 	plr->plane_x = 0;
-	plr->plane_y = -0.66;
+	plr->plane_y = 0.66;
 }
 
 void	dir_n(t_plr *plr)
 {
 	plr->dir_x = 0;
 	plr->dir_y = -1;
-	plr->plane_x = -0.66;
+	plr->plane_x = 0.66;
 	plr->plane_y = 0;
 }
 
@@ -40,7 +40,7 @@ void	dir_s(t_plr *plr)
 {
 	plr->dir_x = 0;
 	plr->dir_y = 1;
-	plr->plane_x = 0.66;
+	plr->plane_x = -0.66;
 	plr->plane_y = 0;
 }
 

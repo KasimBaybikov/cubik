@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   floor.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/17 13:18:31 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 12:50:45 by rvernon          ###   ########.fr       */
+/*   Created: 2021/02/27 14:23:31 by rvernon           #+#    #+#             */
+/*   Updated: 2021/02/27 14:30:28 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "cub3d.h"
 
-void	my_mlx_pixel_put(t_all *all, int x, int y, int color)
+void	floor_paint(t_all *all)
 {
-    char    *dst;
+	int x;
+	int y;
+	int color;
 
-    dst = all->img->addr + (y * all->img->line_len + x * (all->img->bpp / 8));
-    *(unsigned int*)dst = color;
-}
-
-int		rgb_make(int t, int r, int g, int b)
-{
-	return(t << 24 | r << 16 | g << 8 | b);
-}
+	x = 0;
+	y = 0;
+	color = rgb_make(0, all->clr->f_r, all->clr->f_g, all->clr->f_b);
+	while (x < all->win->w)
+	{
+		while (y < all->win->h / 2)
+		{
+			my_mlx_pixel_put(all, x, y, rgb_make(
+		}
+		y = 0;
+		x++;
+	}

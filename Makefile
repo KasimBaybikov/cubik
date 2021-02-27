@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/02/26 16:57:11 by rvernon          ###   ########.fr        #
+#    Updated: 2021/02/27 14:31:11 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,9 @@ FILES = start.c\
 		utils.c\
 		calculate.c\
 		mlx.c\
+		key_press.c\
+		key_release.c\
+		floor_paint.c\
 
 SRCS = $(addprefix srcs/, $(FILES))
 

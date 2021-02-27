@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/26 18:27:10 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 14:30:34 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # define move_speed 0.05
 # define rot_speed 0.05
+# define ESC_KEY 53
 
 typedef struct
 {
@@ -50,6 +51,9 @@ typedef struct
 	float delta_dist_y;
 	float side_dist_y;
 	float perp_wall_dist;
+	int line_height;
+	int draw_start;
+	int draw_end;
 	int step_x;
 	int step_y;
 	int hit;
@@ -94,6 +98,17 @@ typedef struct
 
 typedef struct
 {
+	int esc;
+	int w;
+	int a;
+	int s;
+	int d;
+	int left;
+	int right;
+}	t_hook;
+
+typedef struct
+{
 	char **map;
 	t_win *win;
 	t_plr *plr;
@@ -101,6 +116,7 @@ typedef struct
 	t_tex *tex;
 	t_spr *spr;
 	t_img *img;
+	t_hook *hook;
 	int map_w;
 	int map_h;
 }	t_all;
@@ -142,4 +158,9 @@ void	get_sprites(t_all *all, int x, int y, int i);
 void	init_key(t_key *key);
 int		rgb_make(int t, int r, int g, int b);
 void	calculate(t_all *all);
+
+int		key_down(int key, t_all *all);
+int		key_up(int key, t_all *all);
+void	floor_paint(t_all *all);
+void	celling(t_all *all);
 #endif

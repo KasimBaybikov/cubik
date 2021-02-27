@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/26 18:27:14 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/27 14:00:01 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ static	void	init_plr(t_plr *plr)
 	plr->delta_dist_y = 0;
 	plr->side_dist_y = 0;
 	plr->perp_wall_dist = 0;
+	plr->line_height = 0;
+	plr->draw_start = 0;
+	plr->draw_end = 0;
 	plr->step_x = 0;
 	plr->step_y = 0;
 	plr->hit = 0;
@@ -62,6 +65,17 @@ static	void	init_clr(t_clr *clr)
 	clr->c_b = -1;
 }
 
+static	void	init_hook(t_hook *hook)
+{
+	hook->esc = 0;
+	hook->w = 0;
+	hook->a = 0;
+	hook->s = 0;
+	hook->d = 0;
+	hook->left = 0;
+	hook->right = 0;
+}
+
 void	init_all(t_all *all)
 {
 	if (!(all->win = malloc(sizeof(t_win) * 1)))
@@ -74,10 +88,13 @@ void	init_all(t_all *all)
 		return ;
 	if (!(all->img = malloc(sizeof(t_img) * 1)))
 		return ;
+	if (!(all->hook = malloc(sizeof(t_hook) * 1)))
+		return ;
 	init_win(all->win);
 	init_plr(all->plr);
 	init_tex(all->tex);
 	init_clr(all->clr);
+	init_hook(all->hook);
 	all->spr = 0;
 	all->map = 0;
 	all->map_w = 0;
