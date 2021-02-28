@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 15:43:35 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 20:53:27 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/28 11:19:27 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	shift_speed(t_all *all)
 {
-	all->plr->move_speed = 0.12;
+	all->plr->move_speed = 0.1;
 }
 
 void	right_turn(t_plr *plr)

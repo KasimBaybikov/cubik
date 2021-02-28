@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 14:07:16 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 20:52:49 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/28 11:19:23 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		key_up(int key, t_all *all)
 		all->hook->right = 0;
 	if (key == SHIFT_KEY)
 	{
-		all->plr->move_speed = 0.06;
+		all->plr->move_speed = 0.05;
 		all->hook->shift = 0;
 	}
 	return (0);

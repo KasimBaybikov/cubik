@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 20:53:35 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/28 11:19:18 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static	void	init_plr(t_plr *plr)
 	plr->side = 0;
 	plr->map_x = 0;
 	plr->map_y = 0;
-	plr->move_speed = 0.06;
+	plr->move_speed = 0.05;
 }
 
 static	void	init_clr(t_clr *clr)

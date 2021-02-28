@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 19:17:28 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/02/28 10:42:25 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,14 @@ void	fence(t_all *all, int draw_start, int draw_end, int x, int color)
 	int i;
 
 	i = draw_start;
+	if (all->plr->side == 0 && all->plr->step_x > 0)
+		color = color;
+	if (all->plr->side == 0 && all->plr->step_x < 0)
+		color = rgb_make(0, 200, 0, 0);
+	if (all->plr->side == 1 && all->plr->step_y < 0)
+		color = rgb_make(0, 0, 200, 0);
+	if (all->plr->side == 1 && all->plr->step_y > 0)
+		color = rgb_make(0, 0, 0, 200);
 	while (i < draw_end)
 	{
 		my_mlx_pixel_put(all, x, i, color);
