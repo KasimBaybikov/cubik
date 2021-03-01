@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/01 20:29:42 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/01 20:42:14 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,25 +106,25 @@ void	fence(t_all *all, int draw_start, int draw_end, int x, int color)
 {
 	int i;
 	float y;
+	t_textures *t;
 
 	i = draw_start;
 	y = 0.0;
-	/*if (all->plr->side == 0 && all->plr->step_x > 0)
-		color = pixel_get(all->north, i, i);
+	if (all->plr->side == 0 && all->plr->step_x > 0)
+		t = all->north;
 	if (all->plr->side == 0 && all->plr->step_x < 0)
-		color = pixel_get(all->south, i, i);
+		t = all->west;
 	if (all->plr->side == 1 && all->plr->step_y < 0)
-		color = pixel_get(all->east, i, i);
+		t = all->east;
 	if (all->plr->side == 1 && all->plr->step_y > 0)
-		color = pixel_get(all->west, i, i);*/
+		t = all->south;
 	//printf ("%f\n", all->plr->step);
 	while (i < draw_end)
 	{
-		color = pixel_get(all->north, all->plr->tex_x, (int)y);
-		//color = rgb_make(0, 100, 0, 100);
+		color = pixel_get(t, all->plr->tex_x, (int)y);
 		pixel_put(all, x, i, color);
-		i++;
 		y += all->plr->step;
+		i++;
 	}
 }
 
