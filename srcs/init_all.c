@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/01 15:26:23 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/01 19:30:57 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ static	void	init_plr(t_plr *plr)
 	plr->map_x = 0;
 	plr->map_y = 0;
 	plr->move_speed = 0.05;
+	plr->tex_num = 0;
+	plr->wall_x = 0;
+	plr->tex_x = 0;
+	plr->step = 0;
+	plr->tex_pos = 0;
+	plr->tex_y = 0;
 }
 
 static	void	init_clr(t_clr *clr)

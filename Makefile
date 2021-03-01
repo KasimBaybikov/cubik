@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/02/28 16:35:31 by rvernon          ###   ########.fr        #
+#    Updated: 2021/03/01 20:23:53 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIB_D = libs/libft/
 MLX = libmlx.dylib
 LIB = libft.a
 
-CFLAGS = -g -I$(MLX_D) -Iincludes/ -I$(LIB_D)includes/ -framework OpenGL -framework AppKit
+CFLAGS =  -I$(MLX_D) -Iincludes/ -I$(LIB_D)includes/ -framework OpenGL -framework AppKit
 
 FILES = start.c\
 		error.c\

@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/01 16:04:57 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/01 18:44:06 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,12 @@ typedef struct
 	int map_x;
 	int map_y;
 	float move_speed;
+	int tex_num;
+	float wall_x;
+	int tex_x;
+	float step;
+	float tex_pos;
+	int tex_y;
 }	t_plr;
 
 typedef struct
