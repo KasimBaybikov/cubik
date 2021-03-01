@@ -6,30 +6,11 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/28 10:42:25 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/01 17:25:06 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	mini_map(t_all *all, char **map)
-{
-	int i = 0;
-	int j = 0;
-	while (map[i])
-	{
-		while (map[i][j])
-		{
-			if (map[i][j] == '1')
-				my_mlx_pixel_put(all, j, i, rgb_make(0, 101, 0, 101));
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	mlx_put_image_to_window(all->win->mlx, all->win->win, all->img->img, 0, 0);
-}
-
 
 void	ray_dir(t_all *all, t_plr *plr, int x)
 {
@@ -38,8 +19,8 @@ void	ray_dir(t_all *all, t_plr *plr, int x)
 	plr->ray_dir_y = plr->dir_y + plr->plane_y * plr->camera_x;
 	plr->map_x = (int)all->plr->x;
 	plr->map_y = (int)all->plr->y;
-	plr-> delta_dist_x = fabs(1 / plr->ray_dir_x);
-	plr-> delta_dist_y = fabs(1 / plr->ray_dir_y);
+	plr->delta_dist_x = fabs(1 / plr->ray_dir_x);
+	plr->delta_dist_y = fabs(1 / plr->ray_dir_y);
 	//plr-> delta_dist_y = fabs(1 / plr->ray_dir_y);
 	plr->hit = 0;
 }
@@ -110,19 +91,20 @@ void	fence(t_all *all, int draw_start, int draw_end, int x, int color)
 
 	i = draw_start;
 	if (all->plr->side == 0 && all->plr->step_x > 0)
-		color = color;
+		color = pixel_get(all->north, i, i);
 	if (all->plr->side == 0 && all->plr->step_x < 0)
-		color = rgb_make(0, 200, 0, 0);
+		color = pixel_get(all->south, i, i);
 	if (all->plr->side == 1 && all->plr->step_y < 0)
-		color = rgb_make(0, 0, 200, 0);
+		color = pixel_get(all->east, i, i);
 	if (all->plr->side == 1 && all->plr->step_y > 0)
-		color = rgb_make(0, 0, 0, 200);
+		color = pixel_get(all->west, i, i);
 	while (i < draw_end)
 	{
-		my_mlx_pixel_put(all, x, i, color);
+		pixel_put(all, x, i, color);
 		i++;
 	}
 }
+
 int		calculate(t_all *all)
 {
 	int x;
@@ -141,7 +123,9 @@ int		calculate(t_all *all)
 		x++;
 	}
 	mlx_put_image_to_window(all->win->mlx, all->win->win, all->img->img, 0, 0);
-	//printf("w:%d a:%d s:%d d:%d <-%d ->%d\n", all->hook->w, all->hook->a, all->hook->s, all->hook->d, all->hook->left, all->hook->right);
-	//printf("x- %f y- %f\n", all->plr->x, all->plr->y);
+	mlx_put_image_to_window(all->win->mlx, all->win->win, all->north->img_ptr, 10, 10);
+	//mlx_put_image_to_window(all->win->mlx, all->win->win, all->west->img_ptr, 74, 10);
+	//mlx_put_image_to_window(all->win->mlx, all->win->win, all->east->img_ptr, 138, 10);
+	//mlx_put_image_to_window(all->win->mlx, all->win->win, all->south->img_ptr, 202, 10);
 	return (0);
 }

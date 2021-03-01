@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/02/27 19:50:57 by rvernon          ###   ########.fr        #
+#    Updated: 2021/02/28 16:35:31 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ FILES = start.c\
 		ceiling_paint.c\
 		new_keys.c\
 		move.c\
+		textures_make.c\
 
 SRCS = $(addprefix srcs/, $(FILES))
 

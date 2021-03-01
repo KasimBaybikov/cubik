@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/28 11:19:18 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/01 15:26:23 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,25 +78,39 @@ static	void	init_hook(t_hook *hook)
 	hook->shift = 0;
 }
 
+static	void	init_textures(t_textures *t)
+{
+	t->img_data = 0;
+	t->img_ptr = 0;
+	t->data = 0;
+	t->line_len = 0;
+	t->endian = 0;
+	t->width = 0;
+	t->height = 0;
+	t->bpp = 0;
+}
+
 void	init_all(t_all *all)
 {
-	if (!(all->win = malloc(sizeof(t_win) * 1)))
-		return ;
-	if (!(all->plr = malloc(sizeof(t_plr) * 1)))
-		return ;
-	if (!(all->tex = malloc(sizeof(t_tex) * 1)))
-		return ;
-	if (!(all->clr = malloc(sizeof(t_clr) * 1)))
-		return ;
-	if (!(all->img = malloc(sizeof(t_img) * 1)))
-		return ;
-	if (!(all->hook = malloc(sizeof(t_hook) * 1)))
-		return ;
+	all->win = malloc(sizeof(t_win) * 1);
+	all->plr = malloc(sizeof(t_plr) * 1);
+	all->tex = malloc(sizeof(t_tex) * 1);
+	all->clr = malloc(sizeof(t_clr) * 1);
+	all->img = malloc(sizeof(t_img) * 1);
+	all->hook = malloc(sizeof(t_hook) * 1);
+	all->north = malloc(sizeof(t_textures) * 1);
+	all->south = malloc(sizeof(t_textures) * 1);
+	all->west = malloc(sizeof(t_textures) * 1);
+	all->east = malloc(sizeof(t_textures) * 1);
 	init_win(all->win);
 	init_plr(all->plr);
 	init_tex(all->tex);
 	init_clr(all->clr);
 	init_hook(all->hook);
+	init_textures(all->north);
+	init_textures(all->south);
+	init_textures(all->west);
+	init_textures(all->east);
 	all->spr = 0;
 	all->map = 0;
 	all->map_w = 0;

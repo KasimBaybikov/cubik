@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 21:07:20 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/01 16:04:57 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,18 @@ typedef struct
 
 typedef struct
 {
+	void *img_data;
+	void *img_ptr;
+	int *data;
+	int line_len;
+	int endian;
+	int width;
+	int height;
+	int bpp;
+}	t_textures;
+
+typedef struct
+{
 	char **map;
 	t_win *win;
 	t_plr *plr;
@@ -127,6 +139,10 @@ typedef struct
 	t_hook *hook;
 	int map_w;
 	int map_h;
+	t_textures *north;
+	t_textures *south;
+	t_textures *west;
+	t_textures *east;
 }	t_all;
 
 typedef struct
@@ -150,7 +166,7 @@ void	init_all(t_all *all);
 void	parse_file(t_all *all, int fd);
 void	parse_map(t_all *all, int fd);
 int		valid_line(char *line);
-void	my_mlx_pixel_put(t_all *all, int x, int y, int color);
+void	pixel_put(t_all *all, int x, int y, int color);
 
 int		is_empty(char *line);
 void	get_r(t_all *all, char *line, t_key *key);

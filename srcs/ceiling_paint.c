@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 14:45:06 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 15:01:12 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/01 16:06:37 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ceiling_paint(t_all *all)
 	{
 		while (y < all->win->h / 2)
 		{
-			my_mlx_pixel_put(all, x, y, color);
+			pixel_put(all, x, y, color);
 			y++;
 		}
 		y = 0;

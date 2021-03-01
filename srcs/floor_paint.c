@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 14:23:31 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 15:01:13 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/01 16:09:29 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	floor_paint(t_all *all)
 	{
 		while (y < all->win->h)
 		{
-			my_mlx_pixel_put(all, x, y, color);
+			pixel_put(all, x, y, color);
 			y++;
 		}
 		y = all->win->h / 2;
