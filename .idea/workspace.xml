@@ -19,7 +19,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e77b486-bc18-4f92-9641-56805b4af014" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cub3D" beforeDir="false" afterPath="$PROJECT_DIR$/cub3D" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/calculate.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/calculate.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +158,7 @@
       <workItem from="1614510624301" duration="4000" />
       <workItem from="1614529500945" duration="581000" />
       <workItem from="1614590867922" duration="3247000" />
-      <workItem from="1614622999822" duration="14000" />
+      <workItem from="1614622999822" duration="224000" />
     </task>
     <servers />
   </component>

@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/01 20:42:14 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/01 22:26:32 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ void	texture_coordinates(int x, t_all *all, t_plr *plr)
 		plr->tex_x = 64 - plr->tex_x - 1;
 	plr->step =  (float)(64) / plr->line_height;
 	plr->tex_pos = plr->step * (plr->draw_start - all->win->h / 2 + plr->line_height / 2);
-	plr->tex_y = (int)plr->tex_pos & (63);
 }
 
 void	fence(t_all *all, int draw_start, int draw_end, int x, int color)
@@ -118,12 +117,14 @@ void	fence(t_all *all, int draw_start, int draw_end, int x, int color)
 		t = all->east;
 	if (all->plr->side == 1 && all->plr->step_y > 0)
 		t = all->south;
-	//printf ("%f\n", all->plr->step);
 	while (i < draw_end)
 	{
-		color = pixel_get(t, all->plr->tex_x, (int)y);
+		all->plr->tex_y = (int)all->plr->tex_pos & (63);
+		all->plr->tex_pos += all->plr->step;
+		//color = pixel_get(t, all->plr->tex_x, (int)y);
+		color = ((int*)(t->img_data))[64 * all->plr->tex_y + all->plr->tex_x];
 		pixel_put(all, x, i, color);
-		y += all->plr->step;
+		//y += all->plr->step;
 		i++;
 	}
 }
