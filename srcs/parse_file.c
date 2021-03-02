@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:29:21 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/26 15:34:47 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/02 19:30:53 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		find_key(t_all *all, char *line, t_key *key)
 	else if (key->c && line[i] == 'C' && line[i+1] == ' ')
 		get_c(all, line, key);
 	else if (key->flag != 8)
-		error(3); ///Добавь Чистку
+		error(3, all); ///Добавь Чистку
 	if (key->flag == 8)
 		return (0);
 	return (1);

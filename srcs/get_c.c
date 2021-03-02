@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 17:50:11 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/22 11:48:15 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/02 19:34:46 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int		find_dot(char *line)
 	return (dot);
 }
 
-static void characters_fc(char *line)
+static void characters_fc(char *line, t_all *all)
 {
 	int i;
 
@@ -38,7 +38,7 @@ static void characters_fc(char *line)
 		if (line[i] == ' ' || line[i] == 'C' || line[i] == ',' || (line[i] <= '9' && line[i] >= '0'))
 			i++;
 		else
-			error(3);
+			error(3, all);
 	}
 }
 
@@ -76,10 +76,7 @@ void	get_c_color(t_all *all, char *line)
 		{
 			is_num = 1;
 			if (ft_atoi(line) < 0 || ft_atoi(line) > 255)
-			{
-				error(3);
-				exit(1);
-			}
+				error(3, all);
 			else if (all->clr->c_r == -1)
 				all->clr->c_r = ft_atoi(line);
 			else if (all->clr->c_g == -1)
@@ -100,10 +97,10 @@ void	get_c(t_all *all, char *line, t_key *key)
 	key->c = 0;
 	key->flag++;
 	i = 0;
-	characters_fc(line);
+	characters_fc(line, all);
 	if (find_dot(line) != 2)
-		error(3);
+		error(3, all);
 	if (find_numbers(line) != 4)
-		error(3);
+		error(3, all);
 	get_c_color(all, line);
 }

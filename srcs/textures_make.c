@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 16:34:00 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/01 19:48:34 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/02 19:35:15 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	load_texture(t_all *all, t_textures *t, char *path)
 	int fd;
 
 	if ((fd = open(path, 1)) == -1)
-		error(3);
+		error(3, all);
 	close(fd);
 	if (path != 0)
 	{

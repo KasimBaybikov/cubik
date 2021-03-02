@@ -6,11 +6,12 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 17:32:21 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/26 12:39:03 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/02 20:00:21 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
 int	get_count_sprites(t_all *all)
 {
 	int i;

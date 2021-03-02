@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 12:42:36 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 12:14:46 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/02 19:32:17 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	flood_fill(t_all *all, int x, int y, char new, char **map)
 {
 	if (x < 0 || y < 0 || x >= all->map_w || y >= all->map_h || map[y][x] == ' ' || map[y][x] == 0)
-		error(4);
+		error(4, all);
 	if (map[y][x] != new && map[y][x] != ' ' && map[y][x] != '1' && map[y][x] != 0)
 	{
 		map[y][x] = new;
@@ -69,7 +69,7 @@ void	make_fill(t_all *all)
 
 	i = 0;
 	if (!(fill_map = malloc(sizeof(char *) * (all->map_h + 1))))
-		error(4);
+		error(4, all);
 	while (i < all->map_h)
 	{
 		fill_map[i] = malloc(sizeof(char) * all->map_w + 1);
@@ -89,7 +89,7 @@ void	make_map(t_all *all, t_list *head, int size)
 
 	i = -1;
 	if (!(all->map = malloc(sizeof(char*) * (size + 1))))
-		error(2);
+		error(2, all);
 	while (head)
 	{
 		all->map[++i] = head->content;
@@ -103,7 +103,7 @@ void	make_map(t_all *all, t_list *head, int size)
 		i++;
 	}
 	if (get_pos_plr(all) != 1)
-		error(4);
+		error(4, all);
 	get_sprites(all, 0 , 0, 0);
 	make_fill(all);
 }
@@ -119,7 +119,7 @@ void	parse_map(t_all *all, int fd)
 		if (is_empty(line))
 			continue ;
 		if (!valid_line(line))
-			error(4);
+			error(4, all);
 		ft_lstadd_back(&head, ft_lstnew(line)); //листы текут
 		all->map_h++;
 	}

@@ -6,13 +6,13 @@
 /*   By: kasimbaybikov <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:26:57 by kasimbayb         #+#    #+#             */
-/*   Updated: 2021/03/01 12:06:27 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/02 14:17:32 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	error(int error)
+void	error(int error, t_all *all)
 {
 	if (error == 0)
 		ft_printf("\033[32mContinue\n\033[0m");
@@ -24,7 +24,6 @@ void	error(int error)
 		ft_printf("\033[31mERROR: invalid argument\n\033[0m");
 	else if (error == 4)
 		ft_printf("\033[31mERROR: invalid map\n\033[0m");
-
+	free_all(all);
 	exit(1);
-
 }

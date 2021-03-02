@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/03/01 20:23:53 by rvernon          ###   ########.fr        #
+#    Updated: 2021/03/02 19:29:56 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ FILES = start.c\
 		new_keys.c\
 		move.c\
 		textures_make.c\
+		sprite_casting.c\
 
 SRCS = $(addprefix srcs/, $(FILES))
 

@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/01 18:44:06 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/02 19:29:32 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,9 +165,9 @@ typedef struct
 } 	t_key;
 
 
-void	error(int error);
+void	error(int error, t_all *all);
 void	start(char *map_name, t_all *all);
-int		check_map_name(char *name);
+int		check_map_name(char *name, t_all *all);
 void	init_all(t_all *all);
 void	parse_file(t_all *all, int fd);
 void	parse_map(t_all *all, int fd);
@@ -188,6 +188,7 @@ void	get_sprites(t_all *all, int x, int y, int i);
 void	init_key(t_key *key);
 int		rgb_make(int t, int r, int g, int b);
 int		calculate(t_all *all);
+void	sprite_casting(t_all *all);
 
 int		key_down(int key, t_all *all);
 int		key_up(int key, t_all *all);
@@ -198,4 +199,5 @@ void	new_keys(t_all *all, t_plr *plr);
 void	move_w(t_all *all, t_plr *plr);
 void	move_s(t_all *all, t_plr *plr);
 void	move_a(t_all *all, t_plr *plr);
+void	free_all(t_all *all);
 #endif

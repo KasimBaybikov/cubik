@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/01 22:26:32 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/02 19:35:18 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,19 +85,19 @@ void	draw_start_end(t_all *all, t_plr *plr)
 		plr->draw_end = all->win->h - 1;
 }
 
-void	texture_coordinates(int x, t_all *all, t_plr *plr)
+void	texture_coordinates(int x, t_all *all, t_plr *plr, t_textures *t)
 {
 	if (all->plr->side == 0)
 		plr->wall_x = all->plr->y + all->plr->perp_wall_dist * all->plr->ray_dir_y;
 	else 
 		plr->wall_x= all->plr->x + all->plr->perp_wall_dist * all->plr->ray_dir_x;
 	plr->wall_x -= floor(plr->wall_x);
-	plr->tex_x = (int)(plr->wall_x * (double)64);
+	plr->tex_x = (int)(plr->wall_x * (double)t->width);
 	if (all->plr->side == 0 && all->plr->ray_dir_x > 0)
-		plr->tex_x = 64 - plr->tex_x - 1;
+		plr->tex_x = t->width - plr->tex_x - 1;
 	if (all->plr->side == 0 && all->plr->ray_dir_x < 0)
-		plr->tex_x = 64 - plr->tex_x - 1;
-	plr->step =  (float)(64) / plr->line_height;
+		plr->tex_x = t->width - plr->tex_x - 1;
+	plr->step =  1.0 * t->height / plr->line_height;
 	plr->tex_pos = plr->step * (plr->draw_start - all->win->h / 2 + plr->line_height / 2);
 }
 
@@ -110,21 +110,20 @@ void	fence(t_all *all, int draw_start, int draw_end, int x, int color)
 	i = draw_start;
 	y = 0.0;
 	if (all->plr->side == 0 && all->plr->step_x > 0)
-		t = all->north;
+		t = all->east;
 	if (all->plr->side == 0 && all->plr->step_x < 0)
 		t = all->west;
 	if (all->plr->side == 1 && all->plr->step_y < 0)
-		t = all->east;
+		t = all->north;
 	if (all->plr->side == 1 && all->plr->step_y > 0)
 		t = all->south;
+	texture_coordinates(x, all, all->plr, t);
 	while (i < draw_end)
 	{
-		all->plr->tex_y = (int)all->plr->tex_pos & (63);
+		all->plr->tex_y = (int)all->plr->tex_pos & (t->height - 1);
 		all->plr->tex_pos += all->plr->step;
-		//color = pixel_get(t, all->plr->tex_x, (int)y);
-		color = ((int*)(t->img_data))[64 * all->plr->tex_y + all->plr->tex_x];
+		color = ((int*)(t->img_data))[t->height * all->plr->tex_y + all->plr->tex_x];
 		pixel_put(all, x, i, color);
-		//y += all->plr->step;
 		i++;
 	}
 }
@@ -145,28 +144,10 @@ int		calculate(t_all *all)
 		side_dist_x(all->plr);
 		raycast(all, all->plr);
 		draw_start_end(all, all->plr);
-		texture_coordinates(x, all, all->plr);
 		fence(all, all->plr->draw_start, all->plr->draw_end, x, rgb_make(0, 255, 176, 0));
+		sprite_casting(all);
 		x++;
 	}
-	/*int i = 0;
-	int j = 0;
-	int color;
-	while (i < 64)
-	{
-		while (j < 64)
-		{
-			color = pixel_get(all->north, i, j);
-			pixel_put(all, i, j, color);
-			j++;
-		}
-		j = 0;
-		i++;
-	}*/
 	mlx_put_image_to_window(all->win->mlx, all->win->win, all->img->img, 0, 0);
-	//mlx_put_image_to_window(all->win->mlx, all->win->win, all->north->img_ptr, 10, 10);
-	//mlx_put_image_to_window(all->win->mlx, all->win->win, all->west->img_ptr, 74, 10);
-	//mlx_put_image_to_window(all->win->mlx, all->win->win, all->east->img_ptr, 138, 10);
-	//mlx_put_image_to_window(all->win->mlx, all->win->win, all->south->img_ptr, 202, 10);
 	return (0);
 }
