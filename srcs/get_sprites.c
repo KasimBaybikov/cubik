@@ -6,13 +6,13 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 17:32:21 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/02 20:00:21 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/03 12:49:04 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	get_count_sprites(t_all *all)
+int	get_num_sprites(t_all *all)
 {
 	int i;
 	int j;
@@ -37,11 +37,10 @@ int	get_count_sprites(t_all *all)
 
 void	get_sprites(t_all *all, int x, int y, int i)
 {
-	int count;
-
-	count = get_count_sprites(all);
+	all->sprr->num_sprites = get_num_sprites(all);
 	free(all->spr);
-	all->spr = malloc(sizeof(t_spr) * (count));
+	all->spr = malloc(sizeof(t_spr) * (all->sprr->num_sprites));
+	//printf("%d\n", all->sprr->num_sprites);
 	while (all->map[x])
 	{
 		while (all->map[x][y])
@@ -50,6 +49,7 @@ void	get_sprites(t_all *all, int x, int y, int i)
 			{
 				all->spr[i].x = x;
 				all->spr[i].y = y;
+				//printf("x:%f y:%f\n", all->spr[i].x, all->spr[i].y);
 				i++;
 			}
 			y++;

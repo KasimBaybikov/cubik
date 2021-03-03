@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/02 14:01:23 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/03 19:07:36 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,31 @@ static	void	init_textures(t_textures *t)
 	t->bpp = 0;
 }
 
+static	void	init_sprite(t_sprite *s)
+{
+	s->num_sprites = 0;
+	s->spr_order = 0;
+	s->spr_dist = 0;
+	s->spr_x = 0;
+	s->spr_y = 0;
+	s->inv_det = 0;
+	s->transform_x = 0;
+	s->transform_y = 0;
+	s->spr_screen_x = 0;
+	s->spr_h = 0;
+	s->dr_start_y = 0;
+	s->dr_end_y = 0;
+	s->spr_w = 0;
+	s->dr_start_x = 0;
+	s->dr_end_x = 0;
+	s->stripe = 0;
+	s->tex_x = 0;
+	s->tex_y = 0;
+	s->d = 0;
+	s->y = 0;
+	s->color = 0;
+}
+
 void	init_all(t_all *all)
 {
 	all->win = malloc(sizeof(t_win) * 1);
@@ -107,7 +132,10 @@ void	init_all(t_all *all)
 	all->north = malloc(sizeof(t_textures) * 1);
 	all->south = malloc(sizeof(t_textures) * 1);
 	all->west = malloc(sizeof(t_textures) * 1);
+	all->sprite = malloc(sizeof(t_textures) * 1);
 	all->east = malloc(sizeof(t_textures) * 1);
+	all->sprr = malloc(sizeof(t_sprite) * 1);
+	all->z_buf = malloc(sizeof(float) * all->win->w);
 	init_win(all->win);
 	init_plr(all->plr);
 	init_tex(all->tex);
@@ -117,6 +145,8 @@ void	init_all(t_all *all)
 	init_textures(all->south);
 	init_textures(all->west);
 	init_textures(all->east);
+	init_textures(all->sprite);
+	init_sprite(all->sprr);
 	all->spr = 0;
 	all->map = 0;
 	all->map_w = 0;

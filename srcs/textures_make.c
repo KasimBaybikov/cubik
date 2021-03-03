@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 16:34:00 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/02 19:35:15 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/03 17:57:15 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	textures_make(t_all *all)
 	load_texture(all, all->south, all->tex->so);
 	load_texture(all, all->west, all->tex->we);
 	load_texture(all, all->east, all->tex->ea);
+	load_texture(all, all->sprite, all->tex->spr);
 }

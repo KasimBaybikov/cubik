@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/02 19:35:18 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/03 19:07:34 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,9 @@ void	texture_coordinates(int x, t_all *all, t_plr *plr, t_textures *t)
 void	fence(t_all *all, int draw_start, int draw_end, int x, int color)
 {
 	int i;
-	float y;
 	t_textures *t;
 
 	i = draw_start;
-	y = 0.0;
 	if (all->plr->side == 0 && all->plr->step_x > 0)
 		t = all->east;
 	if (all->plr->side == 0 && all->plr->step_x < 0)
@@ -144,10 +142,11 @@ int		calculate(t_all *all)
 		side_dist_x(all->plr);
 		raycast(all, all->plr);
 		draw_start_end(all, all->plr);
+		//all->z_buf[x] = (float)all->plr->perp_wall_dist;
 		fence(all, all->plr->draw_start, all->plr->draw_end, x, rgb_make(0, 255, 176, 0));
-		sprite_casting(all);
 		x++;
 	}
+	sprite_casting(all, all->sprr);
 	mlx_put_image_to_window(all->win->mlx, all->win->win, all->img->img, 0, 0);
 	return (0);
 }

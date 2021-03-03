@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/02 19:29:32 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/03 18:35:59 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ typedef struct
 
 typedef struct
 {
-	int x;
-	int y;
+	float x;
+	float y;
 }	t_spr;
 
 typedef struct
@@ -135,12 +135,36 @@ typedef struct
 
 typedef struct
 {
+	int num_sprites;
+	int *spr_order;
+	float *spr_dist;
+	float spr_x;
+	float spr_y;
+	float inv_det;
+	float transform_x;
+	float transform_y;
+	int spr_screen_x;
+	int spr_h;
+	int dr_start_y;
+	int dr_end_y;
+	int spr_w;
+	int dr_start_x;
+	int dr_end_x;
+	int stripe;
+	int tex_x;
+	int tex_y;
+	int d;
+	int y;
+	int color;
+}	t_sprite;
+
+typedef struct
+{
 	char **map;
 	t_win *win;
 	t_plr *plr;
 	t_clr *clr;
 	t_tex *tex;
-	t_spr *spr;
 	t_img *img;
 	t_hook *hook;
 	int map_w;
@@ -149,6 +173,10 @@ typedef struct
 	t_textures *south;
 	t_textures *west;
 	t_textures *east;
+	t_textures *sprite;
+	t_sprite *sprr;
+	t_spr *spr;
+	float *z_buf;
 }	t_all;
 
 typedef struct
@@ -188,7 +216,7 @@ void	get_sprites(t_all *all, int x, int y, int i);
 void	init_key(t_key *key);
 int		rgb_make(int t, int r, int g, int b);
 int		calculate(t_all *all);
-void	sprite_casting(t_all *all);
+void	sprite_casting(t_all *all, t_sprite *sprr);
 
 int		key_down(int key, t_all *all);
 int		key_up(int key, t_all *all);
