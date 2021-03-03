@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 17:32:21 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/03 12:49:04 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/03 23:28:50 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	get_sprites(t_all *all, int x, int y, int i)
 		{
 			if (all->map[x][y] == '2')
 			{
-				all->spr[i].x = x;
-				all->spr[i].y = y;
+				all->spr[i].x = y;
+				all->spr[i].y = x;
 				//printf("x:%f y:%f\n", all->spr[i].x, all->spr[i].y);
 				i++;
 			}
