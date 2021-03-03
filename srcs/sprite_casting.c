@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 19:28:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/03 19:27:00 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/03 22:35:09 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	sprite_dist(t_sprite *sprr, t_spr *spr, t_plr *plr)
 		sprr->spr_dist[i] = ((plr->x - spr[i].x) * (plr->x - spr[i].x) + (plr->y - spr[i].y) * (plr->y - spr[i].y));
 		i++;
 	}
-	//printf("%f == ", sprr->spr_dist[0]);
 }
 
 void	sort_sprites(int *order, float *dist, int len)
@@ -96,6 +95,8 @@ void	sprite_casting(t_all *all, t_sprite *s)
 		s->stripe = s->dr_start_x;
 		while (s->stripe < s->dr_end_x)
 		{
+			//printf("%d\n", s->dr_end_x);
+			printf("%d\n", s->stripe);
 			s->tex_x = (int)((256 * (s->stripe - (-s->spr_w / 2 + s->spr_screen_x)) * 64 / s->spr_w) / 256);
 			if (s->transform_y > 0 && s->stripe > 0 && s->stripe < all->win->w) //дописать 1 услоие с лодева
 			{

@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/03/02 19:29:56 by rvernon          ###   ########.fr        #
+#    Updated: 2021/03/03 21:56:32 by kasimbayb        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME) : $(MLX) $(OBJS) $(LIB_D)$(LIB)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibs/libft/ -lft -L. -lmlx
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibs/libft/ -lft -Llibs/mlx -lmlx
 	@echo "\033[1;32mDone!"
 	@echo "\033[0m"
 
