@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   calculate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/03 19:07:34 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/03 23:18:39 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	ray_dir(t_all *all, t_plr *plr, int x)
 	plr->map_y = (int)all->plr->y;
 	plr->delta_dist_x = fabs(1 / plr->ray_dir_x);
 	plr->delta_dist_y = fabs(1 / plr->ray_dir_y);
-	//plr-> delta_dist_y = fabs(1 / plr->ray_dir_y);
 	plr->hit = 0;
 }
 
@@ -142,7 +141,7 @@ int		calculate(t_all *all)
 		side_dist_x(all->plr);
 		raycast(all, all->plr);
 		draw_start_end(all, all->plr);
-		//all->z_buf[x] = (float)all->plr->perp_wall_dist;
+		all->z_buf[x] = all->plr->perp_wall_dist;
 		fence(all, all->plr->draw_start, all->plr->draw_end, x, rgb_make(0, 255, 176, 0));
 		x++;
 	}

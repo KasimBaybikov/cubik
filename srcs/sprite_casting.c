@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 19:28:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/03 22:35:09 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/03/03 23:26:09 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,15 +96,19 @@ void	sprite_casting(t_all *all, t_sprite *s)
 		while (s->stripe < s->dr_end_x)
 		{
 			//printf("%d\n", s->dr_end_x);
-			printf("%d\n", s->stripe);
+			//printf("%d\n", s->stripe);
 			s->tex_x = (int)((256 * (s->stripe - (-s->spr_w / 2 + s->spr_screen_x)) * 64 / s->spr_w) / 256);
-			if (s->transform_y > 0 && s->stripe > 0 && s->stripe < all->win->w) //дописать 1 услоие с лодева
+			if (s->transform_y > 0 && s->stripe > 0 && s->stripe < all->win->w && s->transform_y < all->z_buf[s->stripe])
 			{
 				int y = s->dr_start_y;
 				while (y < s->dr_end_y)
 				{
-					int color = rgb_make(0, 100, 100, 0);
-					pixel_put(all, s->stripe, y, color);
+					int color = 0;
+					if (i == 0) 
+						color = rgb_make(0, 100, 100, 0);
+					if (i == 1)
+					   	color = rgb_make(0, 0, 100, 100);
+						pixel_put(all, s->stripe, y, color);
 					y++;
 				}
 			}

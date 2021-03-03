@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/03 19:07:36 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/03 23:16:01 by kasimbayb        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,6 @@ void	init_all(t_all *all)
 	all->sprite = malloc(sizeof(t_textures) * 1);
 	all->east = malloc(sizeof(t_textures) * 1);
 	all->sprr = malloc(sizeof(t_sprite) * 1);
-	all->z_buf = malloc(sizeof(float) * all->win->w);
 	init_win(all->win);
 	init_plr(all->plr);
 	init_tex(all->tex);
@@ -151,6 +150,7 @@ void	init_all(t_all *all)
 	all->map = 0;
 	all->map_w = 0;
 	all->map_h = 0;
+	all->z_buf = 0;
 }
 
 void	init_key(t_key *key)
