@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 19:28:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/03 23:26:09 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/03/04 13:38:37 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,36 @@ void	calc_sprite(t_all *all, t_sprite *s, int i)
 	s->transform_y = s->inv_det * (-all->plr->plane_y * s->spr_x + all->plr->plane_x * s->spr_y);
 	s->spr_screen_x = (int)((all->win->w / 2) * (1 + s->transform_x / s->transform_y));
 	s->spr_h  = (int)fabs(all->win->h / s->transform_y);
+	s->spr_w = (int)fabs(all->win->h / s->transform_y);
 	s->dr_start_y = -s->spr_h / 2 + all->win->h / 2;
 	if (s->dr_start_y < 0)
 		s->dr_start_y = 0;
 	s->dr_end_y = s->spr_h / 2 + all->win->h / 2;
 	if (s->dr_end_y >= all->win->h)
 		s->dr_end_y = all->win->h - 1;
-	s->spr_w = (int)fabs(all->win->h / s->transform_y);
 	s->dr_start_x = -s->spr_w / 2 + s->spr_screen_x;
 	if (s->dr_start_x < 0)
 		s->dr_start_x = 0;
 	s->dr_end_x = s->spr_w / 2 + s->spr_screen_x;
-	if (s->dr_end_x >= all->win->h)
-		s->dr_end_x = all->win->h - 1;
+	if (s->dr_end_x >= all->win->w)
+		s->dr_end_x = all->win->w - 1;
+}
+
+void	draw_sprite(t_all *all, t_sprite *s, int stripe)
+{
+	int y;
+	int color;
+
+	y = s->dr_start_y;
+	while (y < s->dr_end_y)
+	{	
+		s->d = (y) * 256 - all->win->h * 128 + s->spr_h * 128;
+		s->tex_y = ((s->d * all->sprite->height) / s->spr_h) / 256;
+		color = ((int*)all->sprite->img_data)[all->sprite->width * s->tex_y + s->tex_x];
+		if (color != rgb_make(0, 0, 0, 0))
+			pixel_put(all, s->stripe, y, color);
+		y++;
+	}
 }
 
 void	sprite_casting(t_all *all, t_sprite *s)
@@ -95,25 +112,15 @@ void	sprite_casting(t_all *all, t_sprite *s)
 		s->stripe = s->dr_start_x;
 		while (s->stripe < s->dr_end_x)
 		{
-			//printf("%d\n", s->dr_end_x);
-			//printf("%d\n", s->stripe);
 			s->tex_x = (int)((256 * (s->stripe - (-s->spr_w / 2 + s->spr_screen_x)) * 64 / s->spr_w) / 256);
 			if (s->transform_y > 0 && s->stripe > 0 && s->stripe < all->win->w && s->transform_y < all->z_buf[s->stripe])
 			{
-				int y = s->dr_start_y;
-				while (y < s->dr_end_y)
-				{
-					int color = 0;
-					if (i == 0) 
-						color = rgb_make(0, 100, 100, 0);
-					if (i == 1)
-					   	color = rgb_make(0, 0, 100, 100);
-						pixel_put(all, s->stripe, y, color);
-					y++;
-				}
+				draw_sprite(all, s, s->stripe); 
 			}
 			s->stripe++;
 		}
 		i++;
 	}
+	free(s->spr_order);
+	free(s->spr_dist);
 }

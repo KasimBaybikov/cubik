@@ -23,14 +23,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/cub3d.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/1.cub" beforeDir="false" afterPath="$PROJECT_DIR$/maps/1.cub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/calculate.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/calculate.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/get_sprites.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/get_sprites.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/init_all.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/init_all.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mlx.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mlx.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/parse_map.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/parse_map.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/sprite_casting.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/sprite_casting.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/start.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/start.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/textures_make.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/textures_make.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/textures/3.xpm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/textures/t3.xpm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/textures/t4.xpm" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +95,11 @@
     <property name="settings.editor.selected.configurable" value="CLionExternalConfigurable" />
   </component>
   <component name="RunManager" selected="Makefile Application.all">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="all" type="CLionNativeAppRunConfigurationType" PROGRAM_PARAMS="maps/1.cub" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cubik" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/cub3D">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -123,9 +125,9 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -178,8 +180,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/srcs/sprite_casting.c</url>
-          <line>34</line>
+          <line>33</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/srcs/calculate.c</url>
+          <line>142</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -2,12 +2,12 @@
     R       1280 720                  
 
 NO ./textures/colorstone.xpm        
-SO            ./textures/greystone.xpm
 
+SO            ./textures/greystone.xpm
 
 WE ./textures/redbrick.xpm
 EA ./textures/wood.xpm
-S ./textures/pillar.xpm
+S ./textures/barrel.xpm
 
 
 
@@ -16,14 +16,14 @@ S ./textures/pillar.xpm
 C        132,252,255
 
 11111111111111
-10000002000001
-10000111110001
-10000022200001
 10000000000001
-1000000N000001
+10000202000001
+10000202000001
+10000202000001
+100000N0000001
 10000000000001
-10000000000001
-10000000000001
+10000000002001
+12000000000021
 11111111111111
 
 

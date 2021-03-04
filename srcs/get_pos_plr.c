@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 17:13:58 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/27 17:35:16 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/04 13:58:56 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	dir_s(t_plr *plr)
 
 void	get_xy(int i, int j, t_all *all, char dir)
 {
-	all->plr->x = j;
-	all->plr->y = i;
+	all->plr->x = j + 0.5;
+	all->plr->y = i + 0.5;
 	if (dir == 'W')
 		dir_w(all->plr);
 	if (dir == 'E')
