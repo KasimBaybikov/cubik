@@ -6,27 +6,27 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 12:42:36 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/03 16:23:44 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/05 14:22:40 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	flood_fill(t_all *all, int x, int y, char new, char **map)
+void	flood_fill(t_all *all, int x, int y, char new)
 {
-	if (x < 0 || y < 0 || x >= all->map_w || y >= all->map_h || map[y][x] == ' ' || map[y][x] == 0)
+	if (x < 0 || y < 0 || x >= all->map_w || y >= all->map_h || all->map[y][x] == ' ' || all->map[y][x] == 0)
 		error(4, all);
-	if (map[y][x] != new && map[y][x] != ' ' && map[y][x] != '1' && map[y][x] != 0)
+	if (all->map[y][x] != new && all->map[y][x] != ' ' && all->map[y][x] != '1' && all->map[y][x] != 0)
 	{
-		map[y][x] = new;
-		flood_fill(all, x, y - 1, new, map);
-		flood_fill(all, x, y + 1, new, map);
-		flood_fill(all, x + 1, y, new, map);
-		flood_fill(all, x - 1, y, new, map);
-		flood_fill(all, x + 1, y + 1, new, map);
-		flood_fill(all, x - 1, y - 1, new, map);
-		flood_fill(all, x - 1, y + 1, new, map);
-		flood_fill(all, x + 1, y - 1, new, map);
+		all->map[y][x] = new;
+		flood_fill(all, x, y - 1, new);
+		flood_fill(all, x, y + 1, new);
+		flood_fill(all, x + 1, y, new);
+		flood_fill(all, x - 1, y, new);
+		flood_fill(all, x + 1, y + 1, new);
+		flood_fill(all, x - 1, y - 1, new);
+		flood_fill(all, x - 1, y + 1, new);
+		flood_fill(all, x + 1, y - 1, new);
 	}
 }
 
@@ -79,7 +79,7 @@ void	make_fill(t_all *all)
 	}
 	fill_map[i] = 0;
 	filled_map(all->map, fill_map);
-	flood_fill(all, all->plr->x, all->plr->y, 6, fill_map);
+	flood_fill(all, all->plr->x, all->plr->y, 6);
 	free_fill(fill_map);
 }
 

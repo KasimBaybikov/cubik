@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/03/03 21:56:32 by kasimbayb        ###   ########.fr        #
+#    Updated: 2021/03/05 12:54:32 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,10 @@ CC = gcc
 MLX_D = libs/mlx/
 LIB_D = libs/libft/
 
-MLX = libmlx.dylib
+MLX = libmlx.a
 LIB = libft.a
 
-CFLAGS =  -I$(MLX_D) -Iincludes/ -I$(LIB_D)includes/ -framework OpenGL -framework AppKit
+CFLAGS = -g -I$(MLX_D) -Iincludes/ -I$(LIB_D)includes/
 
 FILES = start.c\
 		error.c\
@@ -45,6 +45,8 @@ FILES = start.c\
 		move.c\
 		textures_make.c\
 		sprite_casting.c\
+		screen.c\
+		free_all.c\
 
 SRCS = $(addprefix srcs/, $(FILES))
 
@@ -52,17 +54,16 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME) : $(MLX) $(OBJS) $(LIB_D)$(LIB)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibs/libft/ -lft -Llibs/mlx -lmlx
+$(NAME) : $(MLX_D)$(MLX) $(OBJS) $(LIB_D)$(LIB)
+	$(CC)  $(CFLAGS) -o $(NAME) -framework OpenGL -framework AppKit $(OBJS) -Llibs/libft/ -lft -Llibs/mlx -lmlx
 	@echo "\033[1;32mDone!"
 	@echo "\033[0m"
 
-$(MLX) : $(MLX_D)
+$(MLX_D)$(MLX) : $(MLX_D)
 	@echo "\033[1;32m$(SEP) Compiling... $(SEP)\033[0;32m"
-	@$(MAKE) -C $(MLX_D)
-	#mv $(MLX_D)$(MLX) .
+	@$(MAKE) -C $(MLX_D) 2>/dev/null
 
-$(LIB_D)$(LIB) :
+$(LIB_D)$(LIB) : $(LIB_D)
 	@$(MAKE) -C $(LIB_D)
 
 clean:

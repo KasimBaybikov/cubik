@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:30:30 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/03 23:16:01 by kasimbayb        ###   ########.fr       */
+/*   Updated: 2021/03/05 11:53:36 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static	void	init_win(t_win *win)
 {
 	win->w = 0;
 	win->h = 0;
+	win->mlx = 0;
+	win->win = 0;
 }
 
 static	void	init_plr(t_plr *plr)
@@ -121,36 +123,47 @@ static	void	init_sprite(t_sprite *s)
 	s->color = 0;
 }
 
+static	void	init_img(t_img *img)
+{
+	img->img = 0;
+	img->addr = 0;
+	img->bpp = 0;
+	img->line_len = 0;
+	img->endian = 0;
+}
+
 void	init_all(t_all *all)
 {
 	all->win = malloc(sizeof(t_win) * 1);
-	all->plr = malloc(sizeof(t_plr) * 1);
-	all->tex = malloc(sizeof(t_tex) * 1);
-	all->clr = malloc(sizeof(t_clr) * 1);
-	all->img = malloc(sizeof(t_img) * 1);
-	all->hook = malloc(sizeof(t_hook) * 1);
-	all->north = malloc(sizeof(t_textures) * 1);
-	all->south = malloc(sizeof(t_textures) * 1);
-	all->west = malloc(sizeof(t_textures) * 1);
-	all->sprite = malloc(sizeof(t_textures) * 1);
-	all->east = malloc(sizeof(t_textures) * 1);
-	all->sprr = malloc(sizeof(t_sprite) * 1);
 	init_win(all->win);
+	all->plr = malloc(sizeof(t_plr) * 1);
 	init_plr(all->plr);
+	all->tex = malloc(sizeof(t_tex) * 1);
 	init_tex(all->tex);
+	all->clr = malloc(sizeof(t_clr) * 1);
 	init_clr(all->clr);
+	all->img = malloc(sizeof(t_img) * 1);
+	init_img(all->img);
+	all->hook = malloc(sizeof(t_hook) * 1);
 	init_hook(all->hook);
+	all->north = malloc(sizeof(t_textures) * 1);
 	init_textures(all->north);
+	all->south = malloc(sizeof(t_textures) * 1);
 	init_textures(all->south);
+	all->west = malloc(sizeof(t_textures) * 1);
 	init_textures(all->west);
-	init_textures(all->east);
+	all->sprite = malloc(sizeof(t_textures) * 1);
 	init_textures(all->sprite);
+	all->east = malloc(sizeof(t_textures) * 1);
+	init_textures(all->east);
+	all->sprr = malloc(sizeof(t_sprite) * 1);
 	init_sprite(all->sprr);
 	all->spr = 0;
 	all->map = 0;
 	all->map_w = 0;
 	all->map_h = 0;
 	all->z_buf = 0;
+	all->screen = 0;
 }
 
 void	init_key(t_key *key)

@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/04 13:37:05 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/05 18:27:42 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ int		calculate(t_all *all)
 		x++;
 	}
 	sprite_casting(all, all->sprr);
-	mlx_put_image_to_window(all->win->mlx, all->win->win, all->img->img, 0, 0);
+	if (all->screen == 0)
+		mlx_put_image_to_window(all->win->mlx, all->win->win, all->img->img, 0, 0);
 	return (0);
 }

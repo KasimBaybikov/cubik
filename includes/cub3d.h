@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/04 10:48:44 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/05 18:27:44 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,7 @@ typedef struct
 	t_sprite *sprr;
 	t_spr *spr;
 	float *z_buf;
+	int screen;
 }	t_all;
 
 typedef struct
@@ -217,15 +218,18 @@ void	init_key(t_key *key);
 int		rgb_make(int t, int r, int g, int b);
 int		calculate(t_all *all);
 void	sprite_casting(t_all *all, t_sprite *sprr);
+void	textures_make(t_all *all);
 
 int		key_down(int key, t_all *all);
 int		key_up(int key, t_all *all);
 void	floor_paint(t_all *all);
 void	ceiling_paint(t_all *all);
 void	new_keys(t_all *all, t_plr *plr);
+void	move_d(t_all *all, t_plr *plr);
 
 void	move_w(t_all *all, t_plr *plr);
 void	move_s(t_all *all, t_plr *plr);
 void	move_a(t_all *all, t_plr *plr);
 void	free_all(t_all *all);
+void	screen(t_all *all, char *str);
 #endif
