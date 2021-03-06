@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 10:43:09 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/02 19:33:48 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/06 20:16:07 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,29 +65,32 @@ int find_numbers(char *line)
 	return (res);
 }
 
-void	get_f_color(t_all *all, char *line)
+int			get_f_color(t_all *all, char *line)
 {
-	int is_num;
+	int i;
+	char* tmp = line + 1;
 
-	is_num = 0;
-	while(line && *line)
+	while (*tmp)
 	{
-		if (is_num == 0 && *line >= '0' && *line <= '9')
+		tmp = skip_spaces(tmp);
+		if (*tmp < '0' || *tmp > '9')
+			return (1);
+		if (all->clr->f_r == -1)
+			all->clr->f_r = ft_atoi(tmp);
+		else if (all->clr->f_g == -1)
+			all->clr->f_g = ft_atoi(tmp);
+		else if (all->clr->f_b == -1)
 		{
-			is_num = 1;
-			if (ft_atoi(line) < 0 || ft_atoi(line) > 255)
-				error(3, all);
-			else if (all->clr->f_r == -1)
-				all->clr->f_r = ft_atoi(line);
-			else if (all->clr->f_g == -1)
-				all->clr->f_g = ft_atoi(line);
-			else if (all->clr->f_b == -1)
-				all->clr->f_b = ft_atoi(line);
+			all->clr->f_b = ft_atoi(tmp);
+			break;
 		}
-		else if (*line == ' ' || *line == ',')
-			is_num = 0;
-		line++;
+		tmp = skip_numbers(tmp);
+		tmp = skip_spaces(tmp);
+		if (*tmp != ',')
+			return (1);
+		tmp = skip_dots(tmp);
 	}
+	return (0);
 }
 
 void	get_f(t_all *all, char *line, t_key *key)
@@ -102,5 +105,6 @@ void	get_f(t_all *all, char *line, t_key *key)
 		error(3, all);
 	if (find_numbers(line) != 4)
 		error(3, all);
-	get_f_color(all, line);
+	if (get_f_color(all, line) != 0)
+		error(3, all);
 }

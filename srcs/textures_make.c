@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 16:34:00 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/05 10:56:00 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/06 18:55:16 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	load_texture(t_all *all, t_textures *t, char *path)
 	close(fd);
 	if (path != 0)
 	{
-		t->img_ptr = mlx_xpm_file_to_image(all->win->mlx, path, &t->width, &t->height);
+		if ((t->img_ptr = mlx_xpm_file_to_image(all->win->mlx, path, &t->width, &t->height)) == 0)
+			error(5, all);
 		t->img_data = mlx_get_data_addr(t->img_ptr, &t->bpp, &t->line_len, &t->endian);
 	}
 }

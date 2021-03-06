@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 15:08:10 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/05 18:27:44 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/06 20:16:05 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,4 +232,8 @@ void	move_s(t_all *all, t_plr *plr);
 void	move_a(t_all *all, t_plr *plr);
 void	free_all(t_all *all);
 void	screen(t_all *all, char *str);
+
+char*		skip_spaces(char *s);
+char*		skip_dots(char *s);
+char*		skip_numbers(char *s);
 #endif

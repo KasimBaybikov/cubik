@@ -6,7 +6,7 @@
 #    By: rvernon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:48:10 by rvernon           #+#    #+#              #
-#    Updated: 2021/03/05 12:54:32 by rvernon          ###   ########.fr        #
+#    Updated: 2021/03/06 20:15:09 by rvernon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ FILES = start.c\
 		sprite_casting.c\
 		screen.c\
 		free_all.c\
+		skip.c\
 
 SRCS = $(addprefix srcs/, $(FILES))
 

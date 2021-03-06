@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 12:01:43 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/02 14:17:28 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/06 15:27:35 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,41 @@ void characters_r(char *line, t_all *all)
 		else
 			error(3, all);
 	}
+}
 
+void	check_r(t_all *all, char **split)
+{
+	int i;
+
+	i = 0;
+	while (split[i])
+		i++;
+	if (i != 3)
+		error(3, all);
 }
 
 void	get_r(t_all *all, char *line, t_key *key)
 {
 	char **split;
-	int i;
 
 	key->r = 0;
 	key->flag++;
-	i = 0;
 	characters_r(line, all);
 	split = ft_split(line, ' ');
-	while (split[i])
-		i++;
-	if (i != 3)
-		error(3, all);
-	//добавь проверку на валидность этих данных
-	all->win->w = ft_atoi(split[1]);
-	all->win->h = ft_atoi(split[2]);
+	check_r(all, split);
+	if (ft_atoi(split[1]) < 0 || ft_atoi(split[1]) > 2560)
+		all->win->w = 2560;
+	else
+		all->win->w = ft_atoi(split[1]);
+	if (ft_atoi(split[2]) < 0 || ft_atoi(split[2]) > 1440)
+		all->win->h = 1440;
+	else
+		all->win->h = ft_atoi(split[2]);
+	if (all->win->w < 100 || all->win->h < 100)
+	{
+		all->win->w = 100;
+		all->win->h = 100;
+	}
 	free_split(split);
 }
 

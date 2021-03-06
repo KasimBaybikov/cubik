@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 12:42:36 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/05 14:22:40 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/06 13:22:28 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,14 +112,19 @@ void	parse_map(t_all *all, int fd)
 {
 	char *line;
 	t_list *head;
+	int start;
 
 	head = 0;
+	start = 0;
 	while (get_next_line(fd, &line))
 	{
+		if (start == 1 && is_empty(line))
+			error(4, all);
 		if (is_empty(line))
 			continue ;
 		if (!valid_line(line))
 			error(4, all);
+		start = 1;
 		ft_lstadd_back(&head, ft_lstnew(line)); //листы текут
 		all->map_h++;
 	}
