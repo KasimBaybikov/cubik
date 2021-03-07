@@ -6,13 +6,13 @@ NO ./textures/colorstone.xpm
 
 SO            ./textures/greystone.xpm
 WE ./textures/wood.xpm
-EA ./textures/wood.xpm
+EA ./textures/text.xpm
 
 S ./textures/barrel.xpm
 
 
 
-F  77,34,0
+F  77 ,      34  ,    0
 C        132,252,255
 
 

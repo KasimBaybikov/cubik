@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/05 18:27:42 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/07 20:27:03 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ void	texture_coordinates(int x, t_all *all, t_plr *plr, t_textures *t)
 		plr->wall_x= all->plr->x + all->plr->perp_wall_dist * all->plr->ray_dir_x;
 	plr->wall_x -= floor(plr->wall_x);
 	plr->tex_x = (int)(plr->wall_x * (double)t->width);
-	if (all->plr->side == 0 && all->plr->ray_dir_x > 0)
-		plr->tex_x = t->width - plr->tex_x - 1;
 	if (all->plr->side == 0 && all->plr->ray_dir_x < 0)
+		plr->tex_x = t->width - plr->tex_x - 1;
+	if (all->plr->side == 1 && all->plr->ray_dir_y > 0)
 		plr->tex_x = t->width - plr->tex_x - 1;
 	plr->step =  1.0 * t->height / plr->line_height;
 	plr->tex_pos = plr->step * (plr->draw_start - all->win->h / 2 + plr->line_height / 2);
