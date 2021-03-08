@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 15:43:35 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/04 16:51:07 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 13:45:17 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	right_turn(t_plr *plr)
 	plr->dir_x = plr->dir_x * cos(rot_speed) - plr->dir_y * sin(rot_speed);
 	plr->dir_y = old_dir_x * sin(rot_speed) + plr->dir_y * cos(rot_speed);
 	old_plane_x = plr->plane_x;
-	plr->plane_x = plr->plane_x * cos(rot_speed) - plr->plane_y * sin(rot_speed);
+	plr->plane_x = plr->plane_x * cos(rot_speed) - plr->plane_y *
+		sin(rot_speed);
 	plr->plane_y = old_plane_x * sin(rot_speed) + plr->plane_y * cos(rot_speed);
 }
 
@@ -39,8 +40,10 @@ void	left_turn(t_plr *plr)
 	plr->dir_x = plr->dir_x * cos(-rot_speed) - plr->dir_y * sin(-rot_speed);
 	plr->dir_y = old_dir_x * sin(-rot_speed) + plr->dir_y * cos(-rot_speed);
 	old_plane_x = plr->plane_x;
-	plr->plane_x = plr->plane_x * cos(-rot_speed) - plr->plane_y * sin(-rot_speed);
-	plr->plane_y = old_plane_x * sin(-rot_speed) + plr->plane_y * cos(-rot_speed);
+	plr->plane_x = plr->plane_x * cos(-rot_speed) - plr->plane_y *
+		sin(-rot_speed);
+	plr->plane_y = old_plane_x * sin(-rot_speed) + plr->plane_y *
+		cos(-rot_speed);
 }
 
 void	new_keys(t_all *all, t_plr *plr)

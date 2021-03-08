@@ -6,17 +6,14 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 11:45:26 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/05 16:38:56 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 13:10:51 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	free_all(t_all *all)
+void	free_first(t_all *all)
 {
-	int i;
-
-	i = 0;
 	free(all->plr);
 	free(all->tex->so);
 	free(all->tex->we);
@@ -33,6 +30,14 @@ void	free_all(t_all *all)
 	free(all->east);
 	free(all->win->mlx);
 	free(all->win);
+}
+
+void	free_all(t_all *all)
+{
+	int i;
+
+	i = 0;
+	free_first(all);
 	if (all->map != 0)
 	{
 		while (all->map[i])

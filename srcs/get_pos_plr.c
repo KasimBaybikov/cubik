@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 17:13:58 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/04 13:58:56 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 13:29:08 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,20 @@ void	get_xy(int i, int j, t_all *all, char dir)
 
 int		get_pos_plr(t_all *all)
 {
-	int i;
-	int j;
-	int flag;
-	char dir;
+	int		i;
+	int		j;
+	int		flag;
+	char	dir;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	flag = 0;
-	while (all->map[i])
+	while (all->map[++i])
 	{
 		while (all->map[i][j])
 		{
-			if (all->map[i][j] == 'W' || all->map[i][j] == 'E' ||all->map[i][j] == 'N' ||all->map[i][j] == 'S')
+			if (all->map[i][j] == 'W' || all->map[i][j] == 'E' ||
+				all->map[i][j] == 'N' || all->map[i][j] == 'S')
 			{
 				dir = all->map[i][j];
 				flag++;
@@ -82,7 +83,6 @@ int		get_pos_plr(t_all *all)
 			j++;
 		}
 		j = 0;
-		i++;
 	}
 	return (flag);
 }

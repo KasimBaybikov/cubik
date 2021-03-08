@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 13:08:12 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/01 16:04:04 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 13:38:10 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		key_down(int key, t_all *all)
 	if (key == D_KEY)
 		all->hook->d = 1;
 	if (key == LEFT_KEY)
-		all->hook->left= 1;
+		all->hook->left = 1;
 	if (key == RIGHT_KEY)
 		all->hook->right = 1;
 	if (key == SHIFT_KEY)

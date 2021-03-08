@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 14:07:16 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/28 11:19:23 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 13:38:26 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		key_up(int key, t_all *all)
 	if (key == D_KEY)
 		all->hook->d = 0;
 	if (key == LEFT_KEY)
-		all->hook->left= 0;
+		all->hook->left = 0;
 	if (key == RIGHT_KEY)
 		all->hook->right = 0;
 	if (key == SHIFT_KEY)

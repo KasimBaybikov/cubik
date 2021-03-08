@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 19:06:00 by rvernon           #+#    #+#             */
-/*   Updated: 2021/02/23 19:18:02 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 14:04:42 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		valid_line(char *line)
 	while (line[i])
 	{
 		if (line[i] != ' ' && line[i] != '0' && line[i] != '1' && line[i] != '2'
-				&& line[i] != 'W' && line[i] != 'E' && line[i] != 'N' && line[i] != 'S')
+		&& line[i] != 'W' && line[i] != 'E' && line[i] != 'N' && line[i] != 'S')
 			return (0);
 		i++;
 	}

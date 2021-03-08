@@ -6,13 +6,13 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 10:43:09 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/06 20:16:07 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 13:25:50 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		find_dot(char *line)
+int				find_dot(char *line)
 {
 	int dot;
 	int i;
@@ -28,21 +28,22 @@ int		find_dot(char *line)
 	return (dot);
 }
 
-void characters_fc(char *line, t_all *all)
+void			characters_fc(char *line, t_all *all)
 {
 	int i;
 
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == ' ' || line[i] == 'F' || line[i] == ',' || (line[i] <= '9' && line[i] >= '0'))
+		if (line[i] == ' ' || line[i] == 'F' ||
+			line[i] == ',' || (line[i] <= '9' && line[i] >= '0'))
 			i++;
 		else
 			error(3, all);
 	}
 }
 
-int find_numbers(char *line)
+int				find_numbers(char *line)
 {
 	int i;
 	int res;
@@ -65,11 +66,12 @@ int find_numbers(char *line)
 	return (res);
 }
 
-int			get_f_color(t_all *all, char *line)
+int				get_f_color(t_all *all, char *line)
 {
-	int i;
-	char* tmp = line + 1;
+	int		i;
+	char	*tmp;
 
+	tmp = line + 1;
 	while (*tmp)
 	{
 		tmp = skip_spaces(tmp);
@@ -82,7 +84,7 @@ int			get_f_color(t_all *all, char *line)
 		else if (all->clr->f_b == -1)
 		{
 			all->clr->f_b = ft_atoi(tmp);
-			break;
+			break ;
 		}
 		tmp = skip_numbers(tmp);
 		tmp = skip_spaces(tmp);
@@ -93,7 +95,7 @@ int			get_f_color(t_all *all, char *line)
 	return (0);
 }
 
-void	get_f(t_all *all, char *line, t_key *key)
+void			get_f(t_all *all, char *line, t_key *key)
 {
 	int i;
 

@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:57:24 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/07 20:27:03 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 13:05:57 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,12 @@ void	raycast(t_all *all, t_plr *plr)
 			plr->hit = 1;
 	}
 	if (plr->side == 0)
-		plr->perp_wall_dist = (plr->map_x - plr->x + (1 - plr->step_x) / 2) / plr->ray_dir_x;
+		plr->perp_wall_dist = (plr->map_x - plr->x +
+				(1 - plr->step_x) / 2) / plr->ray_dir_x;
 	else
-		plr->perp_wall_dist = (plr->map_y - plr->y + (1 - plr->step_y) / 2) / plr->ray_dir_y;
-	plr->line_height = (int) (all->win->h / plr->perp_wall_dist);
+		plr->perp_wall_dist = (plr->map_y - plr->y +
+				(1 - plr->step_y) / 2) / plr->ray_dir_y;
+	plr->line_height = (int)(all->win->h / plr->perp_wall_dist);
 }
 
 void	draw_start_end(t_all *all, t_plr *plr)
@@ -87,23 +89,27 @@ void	draw_start_end(t_all *all, t_plr *plr)
 void	texture_coordinates(int x, t_all *all, t_plr *plr, t_textures *t)
 {
 	if (all->plr->side == 0)
-		plr->wall_x = all->plr->y + all->plr->perp_wall_dist * all->plr->ray_dir_y;
-	else 
-		plr->wall_x= all->plr->x + all->plr->perp_wall_dist * all->plr->ray_dir_x;
+		plr->wall_x = all->plr->y + all->plr->perp_wall_dist *
+			all->plr->ray_dir_y;
+	else
+		plr->wall_x = all->plr->x + all->plr->perp_wall_dist *
+			all->plr->ray_dir_x;
 	plr->wall_x -= floor(plr->wall_x);
 	plr->tex_x = (int)(plr->wall_x * (double)t->width);
 	if (all->plr->side == 0 && all->plr->ray_dir_x < 0)
 		plr->tex_x = t->width - plr->tex_x - 1;
 	if (all->plr->side == 1 && all->plr->ray_dir_y > 0)
 		plr->tex_x = t->width - plr->tex_x - 1;
-	plr->step =  1.0 * t->height / plr->line_height;
-	plr->tex_pos = plr->step * (plr->draw_start - all->win->h / 2 + plr->line_height / 2);
+	plr->step = 1.0 * t->height / plr->line_height;
+	plr->tex_pos = plr->step * (plr->draw_start - all->win->h /
+			2 + plr->line_height / 2);
 }
 
-void	fence(t_all *all, int draw_start, int draw_end, int x, int color)
+void	fence(t_all *all, int draw_start, int draw_end, int x)
 {
-	int i;
-	t_textures *t;
+	int			i;
+	t_textures	*t;
+	int			color;
 
 	i = draw_start;
 	if (all->plr->side == 0 && all->plr->step_x > 0)
@@ -119,13 +125,12 @@ void	fence(t_all *all, int draw_start, int draw_end, int x, int color)
 	{
 		all->plr->tex_y = (int)all->plr->tex_pos & (t->height - 1);
 		all->plr->tex_pos += all->plr->step;
-		color = ((int*)(t->img_data))[t->height * all->plr->tex_y + all->plr->tex_x];
+		color = ((int*)(t->img_data))
+			[t->height * all->plr->tex_y + all->plr->tex_x];
 		pixel_put(all, x, i, color);
 		i++;
 	}
 }
-
-
 
 int		calculate(t_all *all)
 {
@@ -142,11 +147,12 @@ int		calculate(t_all *all)
 		raycast(all, all->plr);
 		draw_start_end(all, all->plr);
 		all->z_buf[x] = all->plr->perp_wall_dist;
-		fence(all, all->plr->draw_start, all->plr->draw_end, x, rgb_make(0, 255, 176, 0));
+		fence(all, all->plr->draw_start, all->plr->draw_end, x);
 		x++;
 	}
 	sprite_casting(all, all->sprr);
 	if (all->screen == 0)
-		mlx_put_image_to_window(all->win->mlx, all->win->win, all->img->img, 0, 0);
+		mlx_put_image_to_window(all->win->mlx,
+				all->win->win, all->img->img, 0, 0);
 	return (0);
 }

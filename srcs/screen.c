@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:52:42 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/05 18:27:43 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 13:55:33 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	get_header(t_all *all, int fd)
 {
-	char *head;
-	int i;
-	int size_bmp;
+	char	*head;
+	int		i;
+	int		size_bmp;
 
 	i = 0;
 	size_bmp = all->win->h * (all->win->w * all->img->bpp / 8) + 54;
@@ -31,13 +31,13 @@ void	get_header(t_all *all, int fd)
 	head[5] = size_bmp >> 24;
 	head[10] = 54;
 	write(fd, head, 14);
-	//free(head);
+	free(head);
 }
 
 void	get_bmp(t_all *all, int fd)
 {
-	int i;
-	char *bmp;
+	int		i;
+	char	*bmp;
 
 	i = 0;
 	bmp = malloc(sizeof(char) * 40);
@@ -55,7 +55,7 @@ void	get_bmp(t_all *all, int fd)
 	bmp[12] = 1;
 	bmp[14] = all->img->bpp;
 	write(fd, bmp, 40);
-	//free(bmp);
+	free(bmp);
 }
 
 void	write_img(t_all *all, int fd)
@@ -69,7 +69,8 @@ void	write_img(t_all *all, int fd)
 		j = 0;
 		while (j < all->win->w)
 		{
-			write(fd, all->img->addr + (j * all->img->bpp / 8) + (i * all->img->line_len), all->img->bpp / 8);
+			write(fd, all->img->addr + (j * all->img->bpp / 8) +
+					(i * all->img->line_len), all->img->bpp / 8);
 			j++;
 		}
 		i--;
@@ -90,6 +91,5 @@ void	screen(t_all *all, char *str)
 	get_bmp(all, fd);
 	write_img(all, fd);
 	free_all(all);
-	//sleep(10);
 	return ;
 }

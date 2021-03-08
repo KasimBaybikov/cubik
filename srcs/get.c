@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 12:01:43 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/06 15:27:35 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 13:12:51 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ void	free_split(char **split)
 	return ;
 }
 
-void characters_r(char *line, t_all *all)
+void	characters_r(char *line, t_all *all)
 {
 	int i;
 
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == 'R' || line[i] == ' ' || (line[i] <= '9' && line[i] >= '0'))
+		if (line[i] == 'R' || line[i] == ' ' ||
+			(line[i] <= '9' && line[i] >= '0'))
 			i++;
 		else
 			error(3, all);
@@ -75,8 +76,8 @@ void	get_r(t_all *all, char *line, t_key *key)
 
 void	get_no(t_all *all, char *line, t_key *key)
 {
-	char **split;
-	int i;
+	char	**split;
+	int		i;
 
 	key->no = 0;
 	key->flag++;
@@ -92,8 +93,8 @@ void	get_no(t_all *all, char *line, t_key *key)
 
 void	get_so(t_all *all, char *line, t_key *key)
 {
-	char **split;
-	int i;
+	char	**split;
+	int		i;
 
 	key->so = 0;
 	key->flag++;
@@ -109,8 +110,8 @@ void	get_so(t_all *all, char *line, t_key *key)
 
 void	get_we(t_all *all, char *line, t_key *key)
 {
-	char **split;
-	int i;
+	char	**split;
+	int		i;
 
 	key->we = 0;
 	key->flag++;
@@ -126,8 +127,8 @@ void	get_we(t_all *all, char *line, t_key *key)
 
 void	get_ea(t_all *all, char *line, t_key *key)
 {
-	char **split;
-	int i;
+	char	**split;
+	int		i;
 
 	key->ea = 0;
 	key->flag++;
@@ -143,8 +144,8 @@ void	get_ea(t_all *all, char *line, t_key *key)
 
 void	get_s(t_all *all, char *line, t_key *key)
 {
-	char **split;
-	int i;
+	char	**split;
+	int		i;
 
 	key->s = 0;
 	key->flag++;
