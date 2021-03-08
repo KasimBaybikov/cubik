@@ -5,7 +5,7 @@
 NO ./textures/illusion.xpm        
 
 SO            ./textures/fractal.xpm
-WE ./textures/wood.xpm
+WE ./textures/phoenix.xpm
 EA ./textures/text.xpm
 
 S ./textures/barrel.xpm
