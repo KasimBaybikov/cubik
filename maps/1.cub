@@ -1,10 +1,10 @@
 
-              R 01800 1000
+              R 800 600
 
 
-NO ./textures/colorstone.xpm        
+NO ./textures/illusion.xpm        
 
-SO            ./textures/greystone.xpm
+SO            ./textures/fractal.xpm
 WE ./textures/wood.xpm
 EA ./textures/text.xpm
 

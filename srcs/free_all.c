@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 11:45:26 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/08 13:10:51 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 14:31:32 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	free_first(t_all *all)
 	free(all->east);
 	free(all->win->mlx);
 	free(all->win);
+	free(all->z_buf);
 }
 
 void	free_all(t_all *all)

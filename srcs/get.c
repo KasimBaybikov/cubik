@@ -6,7 +6,7 @@
 /*   By: rvernon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 12:01:43 by rvernon           #+#    #+#             */
-/*   Updated: 2021/03/08 13:12:51 by rvernon          ###   ########.fr       */
+/*   Updated: 2021/03/08 14:30:36 by rvernon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,24 @@ void	characters_r(char *line, t_all *all)
 void	check_r(t_all *all, char **split)
 {
 	int i;
+	int nul;
 
+	nul = 0;
 	i = 0;
 	while (split[i])
 		i++;
 	if (i != 3)
+		error(3, all);
+	i = -1;
+	while (split[1][++i] == '0')
+		nul++;
+	if (nul != 0)
+		error(3, all);
+	nul = 0;
+	i = -1;
+	while (split[2][++i] == '0')
+		nul++;
+	if (nul != 0)
 		error(3, all);
 }
 
