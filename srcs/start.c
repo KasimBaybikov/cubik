@@ -27,7 +27,6 @@ void	all_mlx(t_all *all)
 int		cross_button(t_all *all)
 {
 	free_all(all);
-	sleep(3);
 	exit(0);
 	return (0);
 }
